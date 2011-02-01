@@ -2,6 +2,100 @@
 <h1>Getting Started with Micro and Spectrum</h1>
 
 <p>
-    <a href="http://github.com/tomyan/micro.js">Micro</a> is a micro framework for <a 
+    <a href="http://github.com/tomyan/micro.js">Micro</a> is a micro framework for <a href="http://nodejs.org/">Node.JS</a> and <a href="http://github.com/tomyan/spectrum.js">Spectrum</a> is a templating language that aims to allow rich templates that can be rendered on both the server and the client. This tutorial covers creating a simple web application in Micro and Spectrum. It assumes you have Node installed and working (the author is using version 0.2.5 at the time of writing) - you can check this by running &quot;<code>node --version</code>&quot;.
 </p>
 
+<h2>Install Micro and Spectrum</h2>
+
+<p>
+    The simplest way to set up a development environment is using <a href="http://npmjs.org/">NPM</a>. Follow <a href="https://github.com/isaacs/npm#readme">the instructions for setting up NPM</a> - I would recommend &quot;Option 3: Customize npm to your heart's content&quot; to avoid interfering with things installed for all users on your system. Once you have <a href="http://npmjs.org/">NPM</a> installed, run:
+</p>
+
+<pre><code>npm install proton micro spectrum</code></pre>
+
+<p>
+    The <a href="http://github.com/tomyan/proton.js">Proton</a> package is included as it contains the command for running web applications built with Micro (also called &quot;proton&quot;).
+</p>
+
+<h2>Create a Simple Web Application</h2>
+
+<p>
+    Create a folder to contain your web application and create a <code>lib</code> directory within it. This will contain JavaScript modules, including the one for your web application. Within the <code>lib</code> folder, create a file called <code>webapp.js</code> containing the following:
+</p>
+
+<pre><code>var micro = require('micro');
+
+var WebApp = exports.WebApp = micro.webapp(),
+    get    = WebApp.get;
+
+get('/', function (request, response) {
+    response.ok('text/html');
+    return 'hello, world!';
+});</code></pre>
+
+From the root folder of your new webapp, run the following command:
+
+<pre><code>proton</code></pre>
+
+<p>
+    This starts the web application on port 8000. To view your new webapp, go to <a href="http://localhost:8000/">http://localhost:8000/</a>. To change the port, as well as other options, see &quot;<code>proton --help</code>&quot;.
+</p>
+
+<p>
+    The code for the web application should be fairly self explanitory. Firstly, we load in the micro module and then we use the <code>micro.webapp</code> factory to create a new web app class, which is exported as the <code>WebApp</code> property in the module's namespace. We then make a call to the <code>get</code> function, which adds a handler to the class for the URL path &quot;/&quot;, which is invoked for GET requests. The handler immediately calls the <code>ok</code> method on the response to indicate that the status is &quot;200 OK&quot; and that the content-type is &quot;text/html&quot;. The return value is then used as the body of the response.
+</p>
+
+<h2>Adding a View to your Web Application</h2>
+
+<p>
+   To add a view to our web application, we are going to use the <a href="http://github.com/tomyan/spectrum.js">Spectrum</a> library, but first we need to introduce a couple of features. Firstly, methods can be added to the <code>WebApp</code> class in the normal way by adding functions to the prototype:
+</p>
+
+<pre><code>WebApp.prototype.init = function () {
+    this.view = new spectrum.Renderer(__dirname + '/../views');
+};</code></pre>
+
+<p>
+    In this example we are using the <code>init</code> method, which is called when an instance of this web application is created, to create a Spectrum renderer object to use as the view. We pass the views directory that lives next to the <code>lib</code> directory that our code is in. This is a typical pattern for adding a view to the web application instance.
+</p>
+
+<p>
+    Next we need to introduce something that takes a little getting your head around. Spectrum performs operations like loading in templates asynchronously to ensure that your templates can work just as well in the browser as in Node. When you ask Spectrum to render a template, which includes loading the template, it returns a promise object that is resolved when the template is rendered. The type of promise is that offered by Kris Zyp's excellent <a href="https://github.com/kriszyp/promised-io">Promised-IO</a> library, which provides a <code>then</code> method to add a callback to be ran when the promise is resolved. Putting this all together, we can change our handler to:
+</p>
+
+<pre><code>get('/', function (request, response) {
+    return this.view.render('/index.spv', {}).then(function (output) {
+        response.ok('text/html');
+        return output;
+    });
+});</code></pre>
+
+<p>
+    This causes the template <code>/index.spv</code> (relative to our <code>views</code> folder) to be rendered when the user issues a GET request for &quot;/&quot;. To make this work, we need two template files:
+</p>
+
+<h3><code>views/base.spv</code></h3>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=utf-8&quot;&gt;
+  &lt;title&gt;&lt;% this.pageTitle() %&gt;&lt;/title&gt;
+  &lt;% this.head() %&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;% next(this) %&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;~method head&gt;&lt;/~method&gt;
+&lt;~method pageTitle&gt;&lt;/~method&gt;
+</code></pre>
+
+<h3><code>views/index.spv</code></h3>
+
+<pre><code>&lt;~method pageTitle&gt;Hello, World!&lt;/~method&gt;
+
+&lt;p&gt;
+    Hello, World!
+&lt;/p&gt;</code></pre>
