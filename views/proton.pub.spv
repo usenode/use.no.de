@@ -1,2 +1,12 @@
 
+<~method pageTitle>Proton</~method>
+
+<h1>Proton</h1>
+
+<p>
+    Proton is a tool for developing and running web applications for <a href="http://nodejs.org/">node.js</a>. However, rather than being a web framework in itself, it just provides the mechanism for running a web application built on a compatible framework (e.g. <a href="/micro">micro</a>). Proton is designed to be a thin layer that does not mandate any particular framework.
+</p>
+
+
+
 
