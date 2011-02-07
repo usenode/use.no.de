@@ -23,7 +23,7 @@
     Create a folder to contain your web application and create a <code>lib</code> directory within it. This will contain JavaScript modules, including the one for your web application. Within the <code>lib</code> folder, create a file called <code>webapp.js</code> containing the following:
 </p>
 
-<pre><code>var micro = require('micro');
+<pre><code class="prettyprint">var micro = require('micro');
 
 var WebApp = exports.WebApp = micro.webapp(),
     get    = WebApp.get;
@@ -35,7 +35,7 @@ get('/', function (request, response) {
 
 From the root folder of your new webapp, run the following command:
 
-<pre><code>proton</code></pre>
+<pre><code class="prettyprint">proton</code></pre>
 
 <p>
     This starts the web application on port 8000. To view your new webapp, go to <a href="http://localhost:8000/">http://localhost:8000/</a>. To change the port, as well as other options, see &quot;<code>proton --help</code>&quot;.
@@ -51,7 +51,7 @@ From the root folder of your new webapp, run the following command:
    To add a view to our web application, we are going to use the <a href="http://github.com/tomyan/spectrum.js">Spectrum</a> library, but first we need to introduce a couple of features. Firstly, methods can be added to the <code>WebApp</code> class in the normal way by adding functions to the prototype:
 </p>
 
-<pre><code>WebApp.prototype.init = function () {
+<pre><code class="prettyprint">WebApp.prototype.init = function () {
     this.view = new spectrum.Renderer(__dirname + '/../views');
 };</code></pre>
 
@@ -63,7 +63,7 @@ From the root folder of your new webapp, run the following command:
     Next we need to introduce something that takes a little getting your head around. Spectrum performs operations like loading in templates asynchronously to ensure that your templates can work just as well in the browser as in Node. When you ask Spectrum to render a template, which includes loading the template, it returns a promise object that is resolved when the template is rendered. The type of promise is that offered by Kris Zyp's excellent <a href="https://github.com/kriszyp/promised-io">Promised-IO</a> library, which provides a <code>then</code> method to add a callback to be ran when the promise is resolved. Putting this all together, we can change our handler to:
 </p>
 
-<pre><code>get('/', function (request, response) {
+<pre><code class="prettyprint">get('/', function (request, response) {
     return this.view.render('/index.spv', {}).then(function (output) {
         response.ok('text/html');
         return output;
@@ -76,7 +76,7 @@ From the root folder of your new webapp, run the following command:
 
 <h3><code>views/base.spv</code></h3>
 
-<pre><code>&lt;!DOCTYPE html&gt;
+<pre><code class="prettyprint">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=utf-8&quot;&gt;
@@ -94,7 +94,7 @@ From the root folder of your new webapp, run the following command:
 
 <h3><code>views/index.spv</code></h3>
 
-<pre><code>&lt;~method pageTitle&gt;Hello, World!&lt;/~method&gt;
+<pre><code class="prettyprint">&lt;~method pageTitle&gt;Hello, World!&lt;/~method&gt;
 
 &lt;p&gt;
     Hello, World!

@@ -1,0 +1,72 @@
+
+body {
+    font-size: 100%;
+    font-family: Helvetica, sans;
+}
+
+.layout {
+    margin: 0 auto;
+    width: 960px;
+}
+
+.mast {
+    border-bottom: 1px solid #666;
+    margin: 1em 0 1em 0;
+}
+
+.mast h1, .mast a, .mast a:hover {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
+    text-decoration: none;
+    font-weight: normal;
+    color: black;
+}
+
+.navigation {
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border-bottom: 1px solid #999;
+}
+
+.navigation li {
+    padding: 0 1em 0 0;
+    margin: 0;
+    float: left;
+}
+
+.navigation li a {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    max-width: 650px;
+}
+
+pre {
+    background: #EFEFEF;
+    border: 1px solid #CCC;
+    padding: 9px;
+    overflow: auto;
+    max-width: 600px;
+}
+
+a {
+    color: #F33;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #C00;
+}
+
+.copyright {
+    font-size: 0.8em;
+    border-top: 1px solid #999;
+    margin-top: 2em;
+    padding-top: 0.2em;
+}

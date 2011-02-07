@@ -1,0 +1,29 @@
+
+<~method pageTitle>use.no.de</~method>
+
+<p>
+    This site is about a collection of technologies that were designed together to make it easy to build
+    websites with <a href="http://nodejs.org/">Node.JS</a>.
+</p>
+
+<h2>Components</h2>
+
+<p>
+    The following components are documented on this site:
+</p>
+
+<ul>
+    <li><a href="/proton">Proton</a> - a component for developing and running web applications, such as those built on Micro (below).</li>
+    <li><a href="/micro">Micro</a> - a micro framework for building web applications that run with Proton.</li>
+    <li><a href="/spectrum">Spectrum</a> - a templating languages that runs on both the server and the client.</li>
+</ul>
+
+<h2>Tutorials</h2>
+
+<p>
+    The following are starting points for learning about this collection of technologies:
+</p>
+
+<ul>
+    <li><a href="/tutorials/getting-started-with-micro-and-spectrum">Getting Started with Micro and Spectrum</a></li>
+</ul>

@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-  <title><% this.pageTitle() %></title>
-  <% this.head() %>
-</head>
-<body>
-    <% next(this) %>
-</body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <title><% this.pageTitle() %></title>
+        <script type="text/javascript" src="/prettify/prettify.js"></script>
+        <link rel="stylesheet" type="text/css" href="/style.css" /> 
+        <link rel="stylesheet" type="text/css" href="/prettify/prettify.css"/>
+        <% this.head() %>
+    </head>
+    <body>
+
+        <div class="layout">
+
+            <div class="mast">
+                : if (this.index) {
+                    <h1>use.no.de</h1>
+                : }
+                : else {
+                    <a href="/">use.no.de</a>
+                : }
+            </div>
+
+            <ul class="navigation"> 
+                <li><a href="/">Home</a></li>
+                <li><a href="/tutorials">Tutorials</a></li>
+                <li><a href="/proton">Proton</a></li>
+                <li><a href="/micro">Micro</a></li>
+                <li><a href="/spectrum">Spectrum</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+
+            <div class="content">
+                <% next(this) %>
+            <div>
+
+            <div class="copyright">
+                © Copyright 2011 Tom Yandell - All rights reserved.
+            </div>
+
+        </div>
+
+        <script type="text/javascript">
+            prettyPrint();
+        </script>
+    </body>
 </html>
 
 <~method head></~method>
