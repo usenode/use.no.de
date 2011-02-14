@@ -43,6 +43,10 @@ body {
     padding: 0;
 }
 
+.navigation li.selected a {
+    color: #C00;
+}
+
 p {
     max-width: 650px;
 }

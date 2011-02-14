@@ -27,3 +27,7 @@
 <ul>
     <li><a href="/tutorials/getting-started-with-micro-and-spectrum">Getting Started with Micro and Spectrum</a></li>
 </ul>
+
+<~init>
+    this.mainNavSelected = 'home';
+</~init>
