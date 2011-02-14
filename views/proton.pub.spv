@@ -1,4 +1,6 @@
 
+<~inherit "/proton/base.spv" />
+
 <~method pageTitle>Proton</~method>
 
 <h1>Proton</h1>
