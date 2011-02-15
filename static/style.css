@@ -47,6 +47,12 @@ body {
     color: #C00;
 }
 
+.secondary-nav {
+    font-size: 0.9em;
+    margin-top: 0.7em;
+    padding-bottom: 0.1em;
+}
+
 p {
     max-width: 650px;
 }

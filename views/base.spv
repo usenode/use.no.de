@@ -11,7 +11,7 @@
     <body>
         <div class="layout">
             <div class="mast">
-                : if (this.index) {
+                : if (this.mainNavSelected === 'home') {
                     <h1>use.no.de</h1>
                 : }
                 : else {
@@ -20,14 +20,21 @@
             </div>
 
             <%
-                this.mainNav([
-                    { id: "home",      link: "/",          text: "Home" },
-                    { id: "tutorials", link: "/tutorials", text: "Tutorials" },
-                    { id: "proton",    link: "/proton",    text: "Proton" },
-                    { id: "micro",     link: "/micro",     text: "Micro" },
-                    { id: "spectrum",  link: "/spectrum",  text: "Spectrum" },
-                    { id: "contact",   link: "/contact",   text: "Contact" }
+                this.navigation('navigation', this.mainNavSelected, [
+                    { id: 'home',      link: '/',          text: 'Home' },
+                    { id: 'tutorials', link: '/tutorials', text: 'Tutorials' },
+                    { id: 'proton',    link: '/proton',    text: 'Proton' },
+                    { id: 'micro',     link: '/micro',     text: 'Micro' },
+                    { id: 'spectrum',  link: '/spectrum',  text: 'Spectrum' },
+                    { id: 'contact',   link: '/contact',   text: 'Contact' }
                 ]);
+            %>
+
+            
+            <%
+                if (this.subNavItems) {
+                    this.navigation('navigation secondary-nav', this.subNavSelected, this.subNavItems);
+                }
             %>
 
             <div class="content">
@@ -46,19 +53,24 @@
     </body>
 </html>
 
-<~method mainNav (items) >
-    <ul class="navigation">
+<~method navigation (cssClass, selected, items, opts) >
+    : if (! opts) { opts = {}; }
+    <ul
+        : if (cssClass) {
+            class="<%= cssClass %>"
+        : }
+    >
         : for (var i = 0, l = items.length; i < l; i++) {
             <li
-            : if (this.mainNavSelected === items[i].id) {
+            : if (selected === items[i].id) {
                 class="selected"
             : }
-            ><a href="<%= items[i].link %>"><%= items[i].text %></a></li>
+            >
+                <a href="<%= items[i].link %>"><%= items[i][ opts.textAttribute || 'text' ] %></a>
+            </li>
         : }
     </ul>
 </~method>
 
-
 <~method head></~method>
 <~method pageTitle></~method>
-

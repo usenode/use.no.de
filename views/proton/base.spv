@@ -1,35 +1,32 @@
 
 <% next(this) %>
 
-<~method subNavigation><%
-    this.renderSubNavigation([
-        {
-            "id"       : "proton-home",
-            "text"     : "Home",
-            "longText" : "Proton Home",
-            "path"     : "/proton"
-        },
-        {
-            "id"       : "proton-command-line",
-            "text"     : "Command-Line",
-            "longText" : "Proton Command-Line Options",
-            "path"     : "/proton/cli"
-        }, 
-        {
-            "id"       : "proton-api",
-            "text"     : "API",
-            "longText" : "Proton API",
-            "path"     : "/proton/api"
-        },
-        {
-            "id"       : "targetting-proton",
-            "text"     : "Targetting",
-            "longText" : "Targetting Proton",
-            "path"     : "/proton/targetting"
-        }
-    ]);
-%></~method>
-
 <~init>
     this.mainNavSelected = 'proton';
+    this.subNavItems =  [
+        {
+            'id'       : 'proton-home',
+            'text'     : 'Proton',
+            'longText' : 'Proton Home',
+            'link'     : '/proton'
+        },
+        {
+            'id'       : 'proton-command-line',
+            'text'     : 'Command-Line',
+            'longText' : 'Proton Command-Line Options',
+            'link'     : '/proton/cli'
+        }, 
+        {
+            'id'       : 'proton-api',
+            'text'     : 'API',
+            'longText' : 'Proton API',
+            'link'     : '/proton/api'
+        },
+        {
+            'id'       : 'targetting-proton',
+            'text'     : 'Targetting',
+            'longText' : 'Targetting Proton',
+            'link'     : '/proton/targetting'
+        }
+    ];
 </~init>

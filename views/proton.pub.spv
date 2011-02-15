@@ -15,10 +15,8 @@
 
 <h2>Documentation</h2>
 
-<ul>
-    <li><a href="/proton/installing">Installing Proton</a></li>
-    <li><a href="/proton/cli">Proton Command-Line Options</a></li>
-    <li><a href="/proton/api">Proton API</a></li>
-    <li><a href="/proton/targetting">Targetting Proton (for framework developers)</a></li>
-</ul>
+<% this.navigation(null, null, this.subNavItems, { textAttribute: 'longText' }) %>
 
+<~init>
+    this.subNavSelected = 'proton-home';
+</~init>
