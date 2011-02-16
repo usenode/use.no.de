@@ -6,10 +6,10 @@
     this.subNavItems =  [
         {
             'id'       : 'proton-home',
-            'text'     : 'Proton',
+            'text'     : 'Proton Home',
             'longText' : 'Proton Home',
             'link'     : '/proton'
-        },
+        }/*,
         {
             'id'       : 'proton-command-line',
             'text'     : 'Command-Line',
@@ -27,6 +27,6 @@
             'text'     : 'Targetting',
             'longText' : 'Targetting Proton',
             'link'     : '/proton/targetting'
-        }
+        }*/
     ];
 </~init>

@@ -1,2 +1,52 @@
 
+<~inherit "/micro/base.spv" />
+
+<~init>
+    this.subNavSelected = 'micro-home';
+</~init>
+
+<~method pageTitle>Micro</~method>
+
+<h1>Micro</h1>
+
+<p>
+    Micro.js is a micro webapp framework along the same lines as <a href="http://www.sinatrarb.com/">Sinatra</a>, running on top of <a href="https://github.com/tomyan/proton.js">Proton.js</a>, and hence <a href="http://wiki.commonjs.org/wiki/JSGI/Level0/A/Draft2">JSGI</a> (using <a href="https://github.com/kriszyp/jsgi-node">jsgi-node</a>) and <a href="http://nodejs.org/">Node.js</a> (although there is no reason it couldn't be made to work in other <a href="http://www.commonjs.org/">CommonJS</a> environments).
+</p>
+
+<h2>Installing</h2>
+
+<p>
+    NPM is recommended for development, although for production you might want to find/build a package for your operating system:
+</p>
+
+<pre><code>npm install micro</code></pre>
+
+<h2>A Basic Web App</h2>
+
+<p>
+    The following web app returns the text &quot;hello, world!&quot;:
+</p>
+
+<pre><code class="prettyprint">var WebApp = exports.WebApp = micro.webapp(),
+    get    = WebApp.get;
+    
+get('/', function (request, response) {
+    response.ok('text/html');
+    return 'hello, world!';
+});</code></pre>
+
+<p>
+    To run the web app, create a directory and save the code above into a file called <code>lib/webapp.js</code> under your new directory. From within the directory run:
+</p>
+
+<pre><code>proton</code></pre>
+
+<p>
+    Your new web app should be available at <a href="http://localhost:8000/">http://localhost:8000/</a>.
+</p>
+
+<h2>Documentation</h2>
+
+<% this.navigation(null, null, this.subNavItems, { textAttribute: 'longText' }) %>
+
 

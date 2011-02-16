@@ -1,4 +1,10 @@
 
+<~inherit "/micro/base.spv" />
+
+<~init>
+    this.subNavSelected = 'getting-started';
+</~init>
+
 <h1>Getting Started with Micro and Spectrum</h1>
 
 <p>

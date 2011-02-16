@@ -1,0 +1,14 @@
+
+<% next(this) %>
+
+<~init>
+    this.mainNavSelected = 'spectrum';
+    this.subNavItems =  [
+        {
+            'id'       : 'spectrum-home',
+            'text'     : 'Spectrum Home',
+            'longText' : 'Spectrum Home',
+            'link'     : '/spectrum'
+        }
+    ];
+</~init>

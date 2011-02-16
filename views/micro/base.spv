@@ -1,0 +1,20 @@
+
+<% next(this) %>
+
+<~init>
+    this.mainNavSelected = 'micro';
+    this.subNavItems =  [
+        {
+            'id'       : 'micro-home',
+            'text'     : 'Micro Home',
+            'longText' : 'Micro Home',
+            'link'     : '/micro'
+        },
+        {
+            'id'       : 'getting-started',
+            'text'     : 'Getting Started',
+            'longText' : 'Getting Started with Micro and Spectrum',
+            'link'     : '/micro/getting-started'
+        }
+    ];
+</~init>

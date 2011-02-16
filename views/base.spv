@@ -22,7 +22,6 @@
             <%
                 this.navigation('navigation', this.mainNavSelected, [
                     { id: 'home',      link: '/',          text: 'Home' },
-                    { id: 'tutorials', link: '/tutorials', text: 'Tutorials' },
                     { id: 'proton',    link: '/proton',    text: 'Proton' },
                     { id: 'micro',     link: '/micro',     text: 'Micro' },
                     { id: 'spectrum',  link: '/spectrum',  text: 'Spectrum' },
