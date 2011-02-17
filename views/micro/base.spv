@@ -1,6 +1,8 @@
 
 <% next(this) %>
 
+<% this.ribbon('tomyan/micro.js') %>
+
 <~init>
     this.mainNavSelected = 'micro';
     this.subNavItems =  [

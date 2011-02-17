@@ -1,6 +1,8 @@
 
 <% next(this) %>
 
+<% this.ribbon('tomyan/spectrum.js') %>
+
 <~init>
     this.mainNavSelected = 'spectrum';
     this.subNavItems =  [

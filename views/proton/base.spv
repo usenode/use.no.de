@@ -1,6 +1,8 @@
 
 <% next(this) %>
 
+<% this.ribbon('tomyan/proton.js') %>
+
 <~init>
     this.mainNavSelected = 'proton';
     this.subNavItems =  [
@@ -30,3 +32,4 @@
         }*/
     ];
 </~init>
+
