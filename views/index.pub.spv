@@ -1,4 +1,8 @@
 
+<~init>
+    this.mainNavSelected = 'home';
+</~init>
+
 <~method pageTitle>use.no.de</~method>
 
 <p>
@@ -28,6 +32,5 @@
     <li><a href="/micro/getting-started">Getting Started with Micro and Spectrum</a></li>
 </ul>
 
-<~init>
-    this.mainNavSelected = 'home';
-</~init>
+<% this.ribbon('tomyan/use.no.de') %>
+
