@@ -40,9 +40,9 @@
                 <% next(this) %>
             <div>
 
-            <!--div class="copyright">
-                © Copyright 2011 Tom Yandell - All rights reserved.
-            </div-->
+            <div class="copyright">
+                Site developed by Tom Yandell &amp; Richard Hodgson.
+            </div>
 
         </div>
 
