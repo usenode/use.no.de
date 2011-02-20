@@ -1,0 +1,97 @@
+
+<~inherit "/spectrum/base.spv" />
+
+<~init>
+    this.subNavSelected = 'spectrum-syntax';
+</~init>
+
+<~method pageTitle>Spectrum Syntax</~method>
+
+<h1>Spectrum Template Syntax</h1>
+
+<p>
+    To get started with Spectrum to try the different bits of syntax, see <a href="/micro/getting-started">Getting Started with Micro and Spectrum</a>.
+</p>
+
+<h2 id="expression-tags">Expression Tags - Output Variable or Expression</h2>
+
+<p>
+    An expression tag inserts the result of a JavaScript expression into the output:
+</p>
+
+<pre><code class="prettyprint">Hello &lt;%= user.name %&gt;.</code></pre>
+
+<p>
+    The content will have HTML entities (<code>&lt;</code>, <code>&gt;</code>, <code>&quot;</code> and <code>&amp;</code>) escaped by default to make it suitable for inserting content into an HTML page.
+</p>
+
+<h2 id="code-tags">Code Tags - Embed JavaScript in a Template</h2>
+
+<p>
+    Code tags allow you to insert larger chunks of JavaScript code:
+</p>
+
+<pre><code class="prettyprint">&lt;%
+    var pi = 3.14159;
+%&gt;</code></pre>
+
+<p>
+    Control structures can span multiple code tags, so you can use this feature to embed content within conditionals and loops. However, the following feature is often more convenient for this:
+</p>
+
+<h2 id="code-lines">Code Lines - Embed Lines of JavaScript in a Template</h2>
+
+<p>
+    Lines of javascript can be mixed with the output by prefixing each line with a colon:
+</p>
+
+<pre><code class="prettyprint"><%= ':' %> if (validation_error) {
+    &lt;p class=&quot;error&quot;&gt;An error has occurred.&lt;/p&gt;
+<%= ':' %> }</code></pre>
+
+<p>
+    Multiple lines run together, i.e. this works:
+</p>
+
+<pre><code class="prettyprint">: if (validation_error)
+<%= ':' %> {
+    &lt;p class=&quot;error&quot;&gt;An error has occurred&lt;/p&gt;
+<%= ':' %> }</code></pre>
+
+<p>
+    The initial colon must have nothing on the line before it apart from whitespace. Neither this whitespace nor the trailing newline are included in the template output.
+</p>
+
+<h2 id="methods">Methods - Reuse Within a Template</h2>
+
+<p>
+    When a Spectrum template is rendered, an instance of it is created and the main content specified within it is what is returned. In addition to this, you can define and use smaller chunks in methods: 
+</p>
+
+<pre><code class="prettyprint">&lt;~method myMethod&gt;
+    &lt;p&gt;In myMethod&lt;/p&gt;
+&lt;/~method&gt;</code></pre>
+
+<p>
+    To include the content in the method, call it as you would with any method in JavaScript - methods are turned into ordinary JavaScript functions attached to the template's prototype:
+</p>
+
+<pre><code class="prettyprint">&lt;% this.myMethod() %&gt;</code></pre>
+
+<p>
+    Methods can also specify an parameter list and accept arguments:
+</p>
+
+<pre><code class="prettyprint">&lt;~method greet (name) &gt;
+    &lt;p&gt;Hello &lt;%= name %&gt;.&lt;/p&gt;
+&lt;/~method&gt;</code></pre>
+
+<p>
+    Arguments are passed as you would expect:
+</p>
+
+<pre><code class="prettyprint">&lt;% this.myMethod('World') %&gt;</code></pre>
+
+<p>
+    As methods are turned into ordinary JavaScript functions, each method defines its own scope. However, methods are not evaluated in the scope of the surrounding content, so local variables and functions defined outside of the method will not be visible within it. See <a href="#begin-blocks">Begin Blocks</a> for a mechanism for defining local variables that are visible to all methods within a template, as well as the main template content itself (which is just a special type of method internally).
+

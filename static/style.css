@@ -81,6 +81,20 @@ a:hover {
     padding-top: 0.2em;
 }
 
+h1 {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 1.2em;
+}
 
 /* thanks to http://unindented.org/articles/2009/10/github-ribbon-using-css-transforms/ */
 

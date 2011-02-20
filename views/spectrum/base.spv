@@ -11,6 +11,12 @@
             'text'     : 'Spectrum Home',
             'longText' : 'Spectrum Home',
             'link'     : '/spectrum'
+        },
+        {
+            'id'       : 'spectrum-syntax',
+            'text'     : 'Syntax',
+            'longText' : 'Spectrum Template Syntax',
+            'link'     : '/spectrum/syntax'
         }
     ];
 </~init>

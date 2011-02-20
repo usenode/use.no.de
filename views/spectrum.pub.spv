@@ -11,7 +11,7 @@
     Spectrum.js is a JavaScript template language targetted at both the server (e.g. node.js) and the client-side. It has a lightweight syntax, using embedded JavaScript for logic rather than inventing yet another language to learn. This "logic-ful" template approach ensures that all of you view logic can live within your views, in contrast to the some recent "logic-less" template" systems. It also borrows heavilly from <a href="http://masonhq.com/">Mason</a> to achieve high levels of reuse within your templates.
 </p>
 
-<h2>Installation</h2>
+<h2>Installing</h2>
 
 <p>
     NPM is recommended for development, although for production you might want to find/build a package for your operating system:
@@ -45,4 +45,6 @@ view.render('/index.spv', {).then(function (output) {
     This example assumes that the file you invoke it from is in a directory that is a sibling of the views directory.
 </p>
 
+<h2>Documentation</h2>
 
+<% this.navigation(null, null, this.subNavItems.slice(1), { textAttribute: 'longText' }) %>

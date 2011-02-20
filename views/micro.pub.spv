@@ -47,6 +47,6 @@ get('/', function (request, response) {
 
 <h2>Documentation</h2>
 
-<% this.navigation(null, null, this.subNavItems, { textAttribute: 'longText' }) %>
+<% this.navigation(null, null, this.subNavItems.slice(1), { textAttribute: 'longText' }) %>
 
 

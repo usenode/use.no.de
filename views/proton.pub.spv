@@ -13,9 +13,17 @@
     Once installed, Proton can be used to run a web application via the <code>proton</code> command from the shell. Run <code>proton --help</code> to see a list of options.
 </p>
 
+<h2>Installing</h2>
+
+<p>
+    NPM is recommended for development, although for production you might want to find/build a package for your operating system:
+</p>
+
+<pre><code>npm install proton</code></pre>
+
 <h2>Documentation</h2>
 
-<% this.navigation(null, null, this.subNavItems, { textAttribute: 'longText' }) %>
+<% this.navigation(null, null, this.subNavItems.slice(1), { textAttribute: 'longText' }) %>
 
 <~init>
     this.subNavSelected = 'proton-home';
