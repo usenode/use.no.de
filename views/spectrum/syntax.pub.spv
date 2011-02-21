@@ -94,4 +94,51 @@
 
 <p>
     As methods are turned into ordinary JavaScript functions, each method defines its own scope. However, methods are not evaluated in the scope of the surrounding content, so local variables and functions defined outside of the method will not be visible within it. See <a href="#begin-blocks">Begin Blocks</a> for a mechanism for defining local variables that are visible to all methods within a template, as well as the main template content itself (which is just a special type of method internally).
+</p>
+
+<h2 id="inherit-directive">Inherit Directive - Controlling Inheritance</h2>
+
+<p>
+    Spectrum uses template inheritance to allow you to wrap the content of your template with another template (see <a href="/spectrum/inheritance">Template Inheritance</a>). Use the inherit directive to prevent inheritance or to specify the template to inherit from explicitly. The inherit directive can be anywhere within the top-level of your template - i.e. not within a method or other block tag. To turn off inheritance for a template:
+</p>
+
+<pre><code class="prettyprint">&lt;~inherit none /&gt;</code></pre>
+
+<p>
+    To inherit from template other than the default (see <a href="/spectrum/inheritance">Tempate Inheritance</a>), specify the path to the parent template from the template root:
+</p>
+
+<pre><code class="prettyprint">&lt;~inherit &quot;/path/to/parent.spv&quot; /&gt;</code></pre>
+
+<h2 id="init-block">Init Block - Performing Per Invocation Setup</h2>
+
+<p>
+    When a template is rendered, an instance of it is first created. Methods called during the rendering of the template are called on this instance. An init block allows you to include some JavaScript to initialise the instance after it has been created:
+</p>
+
+<pre><code class="prettyprint">&lt;~init&gt;
+    this.section = 'faqs';
+&lt;/~init&gt;</code></pre>
+
+<p>
+    This feature is often used to add data to a template that is used to control the way part of the page is rendered by a parent template. For example, you might use this to indicate to a parent template, which navigation link should be highlighted for the current page.
+</p>
+
+<h2 id="begin-blocks">Begin Block - Shared Data and Functionality</h2>
+
+<p>
+   Begin blocks are similar to init blocks, only they are only executed once for each template rather than for each new instance. The invocant (i.e. value of <code>this</code>) is the prototype object (i.e. the value of the prototype property of the prototype/constructor function) for the template instances. The begin block is executed in the parent scope of the rest of the code in the template, so any variables or functions declared within it can be used anywhere in the template.
+</p>
+
+<pre><code class="prettyprint">&lt;~begin&gt;
+    this.section = 'faqs';
+    function templateScopedFunction () {
+        // ...
+    }
+    var templateScopedVariable = 'foo';
+&lt;/~begin&gt;</code></pre>
+
+<p>
+    The effect of the property assignment in the above example is the same as that for the init block above - the proprety is available on the template instance. The difference is quite subtle, the proprety assigned to the prototype object in the begin block is shared between all instances of the template and can be overridden for an intervidual template instance.
+</p>
 
