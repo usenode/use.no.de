@@ -1,99 +1,29 @@
+body, h1, h2, h3, h4, p, ul, ol, li {
+    padding: 0;
+    margin: 0;
+}
+
 
 body {
     font-size: 100%;
-    font-family: Helvetica, sans;
+    font-family: Arial, sans;
 }
 
-.layout {
-    margin: 0 auto;
-    width: 960px;
+html, body {
+    height: 100%;
 }
 
-.mast {
-    border-bottom: 1px solid #666;
-    margin: 1em 0 1em 0;
-}
-
-.mast h1, .mast a, .mast a:hover {
-    display: block;
-    margin: 0;
-    padding: 0;
-    font-size: 1.5em;
-    text-decoration: none;
-    font-weight: normal;
-    color: black;
-}
-
-.navigation {
-    overflow: auto;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    border-bottom: 1px solid #999;
-}
-
-.navigation li {
-    padding: 0 1em 0 0;
-    margin: 0;
+.site, .content {
     float: left;
+    min-height: 100%;
 }
 
-.navigation li a {
-    margin: 0;
-    padding: 0;
+.site {
+    width: 40%;
 }
 
-.navigation li.selected a {
-    color: #C00;
-}
-
-.secondary-nav {
-    font-size: 0.9em;
-    margin-top: 0.7em;
-    padding-bottom: 0.1em;
-}
-
-p {
-    max-width: 650px;
-}
-
-pre {
-    background: #EFEFEF;
-    border: 1px solid #CCC;
-    padding: 9px;
-    overflow: auto;
-    max-width: 600px;
-}
-
-a {
-    color: #F33;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #C00;
-}
-
-.copyright {
-    font-size: 0.8em;
-    border-top: 1px solid #999;
-    margin-top: 2em;
-    padding-top: 0.2em;
-}
-
-h1 {
-    font-weight: bold;
-    font-size: 1.5em;
-}
-
-h2 {
-    font-weight: bold;
-    font-size: 1.3em;
-}
-
-h3 {
-    font-weight: bold;
-    font-size: 1.2em;
+.content {
+    width: 60%;
 }
 
 /* thanks to http://unindented.org/articles/2009/10/github-ribbon-using-css-transforms/ */
