@@ -121,5 +121,47 @@ body {
 }
 
 
+.home .site {
+	width: 70%;
+}
 
+.home .content {
+	background-position: 0 0;
+	width: 30%;
+}
 
+.home .navigation {
+	margin-top: 160px;
+}
+
+.home .content-inner {
+	padding-top: 100px;
+}
+
+.home .content p {
+	margin-left: -652px;
+	width: 600px;
+	font-size: 24px;
+	text-align: right;
+	color: #990000;
+	letter-spacing: -1px;
+}
+
+.home .content p a {
+	font-weight: normal;
+	border-bottom: none;
+}
+
+.home .content .get-started a {
+	display: block;
+	margin-top: 20px;
+	color: #c4c2c2;
+	text-transform: uppercase;
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+
+.home .header,
+.home .navigation {
+	margin-right: 28px;
+}

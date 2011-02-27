@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="/prettify/prettify.css"/>
         <% this.head() %>
     </head>
-    <body>
+    <body class="<% this.bodyClass() %>">
     <div class="content">
 	    <div class="content-inner">
             <% next(this) %>
@@ -76,6 +76,8 @@
         : }
     </ul>
 </~method>
+
+<~method bodyClass></~method>
 
 <~method head></~method>
 <~method pageTitle></~method>
