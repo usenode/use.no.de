@@ -81,6 +81,11 @@ body {
 	line-height: 10px;
 }
 
+.navigation li a:hover,
+.home .content .get-started a:hover {
+	color: #fff;
+}
+
 .content h1,
 .content h2,
 .content h3,
@@ -145,6 +150,10 @@ body {
 	text-align: right;
 	color: #990000;
 	letter-spacing: -1px;
+	
+	/* need to make sure the links are clickable */
+	position:relative;
+	z-index: 10;
 }
 
 .home .content p a {
