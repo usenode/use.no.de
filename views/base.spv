@@ -6,6 +6,10 @@
         <script type="text/javascript" src="/prettify/prettify.js"></script>
         <link rel="stylesheet" type="text/css" href="/style.css" /> 
         <link rel="stylesheet" type="text/css" href="/prettify/prettify.css"/>
+        <!--[if IE 6]>
+        	: /* height works like min-height in IE6 */
+        	<style>.content { height: 100%;}</style>
+        <![endif]-->
         <% this.head() %>
     </head>
     <body class="<% this.bodyClass() %>">
