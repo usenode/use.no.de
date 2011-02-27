@@ -205,3 +205,15 @@ body {
 .home .navigation {
 	margin-right: 28px;
 }
+
+.home .copyright {
+	position: absolute;
+	bottom: 0px;
+	margin-left: -295px;
+
+	color: #24273d;
+}
+
+.home .copyright a {
+	color: #2c304b;
+}
