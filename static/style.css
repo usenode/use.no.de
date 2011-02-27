@@ -126,6 +126,11 @@ body {
 	border-bottom: 1px dotted #c4c2c2;
 }
 
+.content p code {
+	color: #333;
+	font-size: 13px;
+}
+
 .content pre {
 	background: #f5f5f5;
 	color: #151724;
@@ -207,11 +212,10 @@ body {
 }
 
 .home .copyright {
+	right: 32%;
+	color: #24273d;
 	position: absolute;
 	bottom: 0px;
-	margin-left: -295px;
-
-	color: #24273d;
 }
 
 .home .copyright a {
