@@ -9,8 +9,14 @@
         <% this.head() %>
     </head>
     <body>
+    <div class="content">
+	    <div class="content-inner">
+            <% next(this) %>
+		</div>
+	</div>			
+
         <div class="site">
-            <div class="mast">
+            <div class="header">
                 : if (this.mainNavSelected === 'home') {
                     <h1>use.no.de</h1>
                 : }
@@ -37,9 +43,7 @@
             %>
         </div>
 
-            <div class="content">
-                <% next(this) %>
-            <div>
+<!--
 
             <div class="copyright">
                 Site developed by Tom Yandell &amp; Richard Hodgson.
@@ -49,22 +53,24 @@
         <script type="text/javascript">
             prettyPrint();
         </script>
-    </body>
+
+
+    --></body>
 </html>
 
 <~method navigation (cssClass, selected, items, opts) >
     : if (! opts) { opts = {}; }
-    <ul
-        : if (cssClass) {
-            class="<%= cssClass %>"
-        : }
-    >
+    <ul<%
+         if (cssClass) {
+            %> class="<%= cssClass %>"<%
+         }
+    %>>
         : for (var i = 0, l = items.length; i < l; i++) {
-            <li
-            : if (selected === items[i].id) {
-                class="selected"
-            : }
-            >
+            <li<%
+             if (selected === items[i].id) {
+                %> class="selected"<%
+             }
+            %>>
                 <a href="<%= items[i].link %>"><%= items[i][ opts.textAttribute || 'text' ] %></a>
             </li>
         : }
@@ -74,9 +80,10 @@
 <~method head></~method>
 <~method pageTitle></~method>
 
-<~method ribbon (path) >
+<~method ribbon (path) ><% /*
     <div class="ribbon">
-        <a href="http://github.com/<%= path %>" rel="me">Fork me on GitHub</a>
+        <a href="http://github.com/<= path >" rel="me">Fork me on GitHub</a>
     </div>
-</~method>
+*/
+%></~method>
 
