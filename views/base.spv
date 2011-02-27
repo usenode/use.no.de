@@ -13,6 +13,9 @@
 	    <div class="content-inner">
             <% next(this) %>
 		</div>
+		<div class="copyright">
+	        Site developed by <a href="http://github.com/tomyan">Tom Yandell</a> &amp; <a href="http://www.twitter.com/richardhodgson">Richard Hodgson</a>.
+        </div>
 	</div>			
 
         <div class="site">
@@ -42,20 +45,19 @@
                 }
             %>
         </div>
-
 <!--
 
-            <div class="copyright">
-                Site developed by Tom Yandell &amp; Richard Hodgson.
-            </div>
 
 
-        <script type="text/javascript">
+
+
+
+
+    -->
+		<script type="text/javascript">
             prettyPrint();
         </script>
-
-
-    --></body>
+    </body>
 </html>
 
 <~method navigation (cssClass, selected, items, opts) >
