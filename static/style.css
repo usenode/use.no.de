@@ -55,7 +55,7 @@ body {
 .header a {
 	display: block;
 	width: 293px;
-	height: 44px;
+	height: 45px;
 	float: right;
 	text-indent: -200px;
 	overflow: hidden;
@@ -119,7 +119,8 @@ body {
 	line-height: 1.3;
 }
 
-.content ul {
+.content ul,
+.content ol {
     display: block;
     list-style-position: inside;
     list-style-type: square;
