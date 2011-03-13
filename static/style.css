@@ -32,7 +32,6 @@ body {
 
 .content-inner {
 	padding-left: 24px;
-	padding-top: 44px;
 	padding-bottom: 6px;
 	width: 70%;
 	min-height: 300px;
@@ -101,6 +100,14 @@ body {
 	margin-bottom: 11px;
 	color: #151724;
 	font-size: 32px;
+    
+	width: 90%;
+	position: relative;
+	left: -24px;
+	padding-left: 24px;
+	padding-top: 47px;
+	
+	background: transparent url(images/horizontal-strip.png) repeat-x;
 }
 
 .content h2 {
@@ -132,7 +139,6 @@ body {
 
 .content li {
     margin: 0 0 0 17px;
-    
 }
 
 .content a {
