@@ -1,3 +1,122 @@
+<~method pageTitle>Getting Started</~method>
+
+<h1>Getting started</h1>
+
 <p>
-   Getting started
+   To make it easier to build websites for <a href="">Node.js</a>, we've created a set of minimal libraries to get you going. 
 </p>
+
+<p>
+	The following guide assumes you have access to <code>node</code> and can install packages with <a href="http://npmjs.org/">npm</a>.
+</p>
+
+<h2>Hello, world</h2>
+
+<p>
+    Let's begin by creating a <code>helloworld</code> website.
+    Create the directory that will hold all the files of this project.
+</p>
+
+<pre><code>mkdir helloworld
+</code></pre>
+
+<p>
+    <a href="/proton">Proton</a> is a thin wrapper around <code>node</code> to allow you easily move your website between development and production.
+</p>
+
+<p>
+    We'll use Proton to run our <code>helloworld</code> project, so lets install it with npm.
+</p>
+
+<pre><code>npm install proton
+</code></pre>
+
+<p>
+    Once npm has finished, the <code>proton</code> executable should now be available on your shell.
+</p>
+
+<p>
+    We can now create a new web application for Proton to run.
+    By convention, Proton will try to run <code>lib/webapp.js</code> from the root of your project.
+</p>
+
+<h2 id="micro">Starting with Micro</h2>
+
+<p>
+    <a href="/micro">Micro</a> is a lightweight webapp framework.
+    It provides a simple way to respond to URLs and serve static content like CSS and JavaScript files.
+</p>
+
+<p>
+    Micro is also available on npm, so let's install it.
+</p>
+
+<pre><code>npm install micro
+</code></pre>
+
+<p>
+    Once installed, we can now <code>require()</code> micro inside Node like any other module.
+</p>
+
+<p>
+    With micro we can build a simple web application in only a few lines.
+    Create <code>helloworld/lib/webapp.js</code> and add the following code:
+</p>
+
+<pre><code>var micro = require('micro'),
+    WebApp = exports.WebApp = micro.webapp(),
+    get    = WebApp.get;
+    
+get('/', function (request, response) {
+    response.ok('text/html');
+    return 'hello, world';
+});
+</code></pre>
+
+<p>
+    There are two key things in the code above.
+</p>
+
+<p>
+    Firstly, we create a new instance of a micro web application using <code>micro.webapp()</code>.
+    We also ensure that the instance is exported by assigning it to <code>exports.WebApp</code>.
+    This allows Proton to run your project.
+</p>
+
+<p>
+    Secondly, we register a callback with the URL route "<code>/</code>".
+    Using the <code>response</code> argument passed to this callback, we specify the HTTP status code and content type to return.
+</p>
+
+<h2>Running your project</h2>
+
+<p>
+    We're now ready to run our <code>helloworld</code> web application for the first time.
+</p>
+
+<p>
+    In the root of your <code>helloworld</code> project directory, start up <code>proton</code>.
+</p>
+
+<pre><code>proton
+</code></pre>
+
+<p>
+    You can now visit <a href="http://localhost:8080/">http://localhost:8080/</a> in your browser to see the text "hello, world".
+</p>
+
+<h2>Next steps</h2>
+
+<ul>
+	<li>
+	    Create HTML templates with <a href="/spectrum/getting-started">Spectrum</a>.
+	</li>
+<!--
+	<li>
+	    Learn more about Micro's URL <a href="/micro/routing-syntax">routing syntax</a>.
+	</li>
+	<li>
+	    Set up simple <a href="/micro/guides/static-asset-handling">static asset handling</a>.
+	</li>
+-->
+</ul>
