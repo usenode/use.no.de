@@ -122,10 +122,17 @@ body {
 
 .content ul,
 .content ol {
+	font-size: 14px;
+	
     display: block;
-    list-style-position: inside;
+    list-style-position: outside;
     list-style-type: square;
     color: #2c304b;
+}
+
+.content li {
+    margin: 0 0 0 17px;
+    
 }
 
 .content a {
