@@ -8,13 +8,22 @@
 <h1>Spectrum</h1>
 
 <p>
-    Spectrum.js is a JavaScript template language targetted at both the server (e.g. node.js) and the client-side. It has a lightweight syntax, using embedded JavaScript for logic rather than inventing yet another language to learn. This "logic-ful" template approach ensures that all of you view logic can live within your views, in contrast to the some recent "logic-less" template" systems. It also borrows heavilly from <a href="http://masonhq.com/">Mason</a> to achieve high levels of reuse within your templates.
+    Spectrum.js is a JavaScript template language targetted at both the server (e.g. node.js) and the client-side.
+</p>
+
+<p>
+    It has a lightweight syntax, using embedded JavaScript for logic rather than inventing yet another language to learn.
+    This "logic-ful" template approach ensures that all of you view logic can live within your views, in contrast to the some recent "logic-less" template" systems.
+</p>
+
+<p>
+    It also borrows heavilly from <a href="http://masonhq.com/">Mason</a> to achieve high levels of reuse within your templates.
 </p>
 
 <h2>Installing</h2>
 
 <p>
-    NPM is recommended for development, although for production you might want to find/build a package for your operating system:
+    <a href="http://npmjs.org/">Npm</a> is recommended for development, although for production you might want to find/build a package for your operating system:
 </p>
 
 <pre><code>npm install spectrum</code></pre>
@@ -22,7 +31,7 @@
 <h2>A Basic Example</h2>
 
 <p>
-    Create a file called &quot;views/index.spv&quot; within a <a href="http://node.js/">node.js</a> project containing the following:
+    Create a <code>views/index.spv</code> file within a <a href="http://node.js/">node.js</a> project, containing the following:
 </p>
 
 <pre><code class="prettyprint">&lt;~inherit none /&gt;
@@ -30,14 +39,15 @@
 one plus one is &lt;%= 1 + 1 %&gt;</code></pre>
 
 <p>
-    To render the template from a JavaScript file being executed by node, use the following code, adjusting the paths as appropriate:
+    This template can be rendered with the following code.
+    Adjust the file paths as appropriate.
 </p>
 
-<pre><code class="prettyprint">var spectrum = require('spectrum');
+<pre><code class="prettyprint">var Spectrum = require('spectrum');
 
-var view = new spectrum.Renderer(__dirname + '/../views');
+var view = new Spectrum.Renderer(__dirname + '/../views');
 
-view.render('/index.spv', {).then(function (output) {
+view.render('/index.spv', {}).then(function (output) {
     // rendered content is available in the output variable
 });</code></pre>
 
