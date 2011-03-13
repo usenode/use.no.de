@@ -3,9 +3,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
         <title><% this.pageTitle() %></title>
-        <script type="text/javascript" src="/prettify/prettify.js"></script>
+        
+        <script type="text/javascript" src="/thirdparty/prettify/prettify.js"></script>
+        <script type="text/javascript" src="/thirdparty/jquery-1.5.1.min.js"></script>
+        <script type="text/javascript" src="/site.js"></script>
+        
         <link rel="stylesheet" type="text/css" href="/style.css" /> 
-        <link rel="stylesheet" type="text/css" href="/prettify/prettify.css"/>
+        <link rel="stylesheet" type="text/css" href="/thirdparty/prettify/prettify.css"/>
         <!--[if IE 6]>
         	: /* height works like min-height in IE6 */
         	<style>.content { height: 100%;}</style>
@@ -17,7 +21,7 @@
 	    <div class="content-inner">
             <% next(this) %>
 		</div>
-		<div class="copyright">
+        <div class="copyright">
 	        Site developed by <a href="http://github.com/tomyan">Tom Yandell</a> &amp; <a href="http://www.twitter.com/richardhodgson">Richard Hodgson</a>.
         </div>
 	</div>			
@@ -49,18 +53,7 @@
                 }
             %>
         </div>
-<!--
-
-
-
-
-
-
-
-    -->
-		<script type="text/javascript">
-            prettyPrint();
-        </script>
+        
     </body>
 </html>
 
