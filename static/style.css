@@ -73,7 +73,7 @@ body {
 .navigation li a {
 	display: block;
 	float: right;
-	padding: 5px 0 5px 12px;
+	padding: 5px 12px 5px 0;
 	
 	text-decoration: none;
 	color: #c4c2c2;
@@ -81,7 +81,7 @@ body {
 	font-size: 12px;
 	letter-spacing: 2px;
 	line-height: 12px;
-	background: url(images/bullet.png) no-repeat left 45%;
+	background: url(images/bullet.png) no-repeat right 45%;
 }
 
 .navigation li a:hover,
@@ -212,11 +212,12 @@ body {
 	text-transform: uppercase;
 	font-size: 18px;
 	letter-spacing: 1px;
-	background: url(images/bullet.png) no-repeat left 45%;
+	background: url(images/bullet.png) no-repeat right 45%;
 	
 	display: block;
 	width: 8.3em;
 	float: right;
+	padding-right: 12px;
 	
 }
 
