@@ -1,4 +1,9 @@
 
-<~inherit "/proton/base.spv" />
+<~inherit "/swipe/base.spv" />
 
+<h1>Swipe</h1>
+
+<p>
+    Swipe.js is an HTTP client library for <a href="http://nodejs.org/">Node.JS</a>, with support for proxies and caching via a number of backend storage mechansims, out of the box. Swipe aims to provide a consistent client interface on the server and inside a browser.
+</p>
 

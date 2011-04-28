@@ -11,7 +11,12 @@
             'text'     : 'Swipe Home',
             'longText' : 'Swipe Home',
             'link'     : '/swipe'
+        },
+        {
+            'id'       : 'getting-started',
+            'text'     : 'Getting Started',
+            'longText' : 'Getting Started with Swipe',
+            'link'     : '/swipe/getting-started'
         }
     ];
 </~init>
-
