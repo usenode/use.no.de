@@ -48,12 +48,11 @@
 <~method head></~method>
 <~method pageTitle></~method>
 
-<~method ribbon (path) ><% /*
+<~method ribbon (path) >
     <div class="ribbon">
-        <a href="http://github.com/<= path >" rel="me">Fork me on GitHub</a>
+        <a href="http://github.com/<%= path %>" rel="me">Fork me on GitHub</a>
     </div>
-*/
-%></~method>
+</~method>
 
 <~method copyright>
 	<div class="copyright">
