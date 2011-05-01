@@ -26,6 +26,7 @@
                     { id: 'micro',     link: '/micro',     text: 'Micro' },
                     { id: 'spectrum',  link: '/spectrum',  text: 'Spectrum' },
                     { id: 'swipe',     link: '/swipe',     text: 'Swipe' },
+                    { id: 'litmus',    link: '/litmus',    text: 'Litmus' },
                     { id: 'contact',   link: '/contact',   text: 'Contact' }
                 ]);
             %>

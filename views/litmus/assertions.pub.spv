@@ -1,0 +1,98 @@
+
+<~inherit "/litmus/base.spv" />
+
+<~init>
+    this.subNavSelected = 'litmus-assertions';
+</~init>
+
+<~method pageTitle>Litmus Assertions</~method>
+
+<h1>Litmus Assertions</h1>
+
+<p>
+    All litmus assertions are methods on the <code>litmus.Test</code>, which is the invocant (value of <code>this</code>) of the function passed to the constructor of the test. All assertion methods take a description of what is being tested as the last parameter, which should always be passed.
+</p>
+
+<h2>Simple Assertions</h2>
+
+<h3><code>litmus.Test.pass(description)</code></h3>
+
+<p>
+    This assertion always passes. This is typically used on a conditional, with a call to <code>fail</code> (see below) in the other branch of the conditional.
+</p>
+
+<pre><code class="prettyprint">var desc = 'one is equal to one';
+
+if (1 === 1) {
+    this.pass(desc);
+}
+else {
+    this.fail(desc);
+}</code></pre>
+
+<p>
+    The description for the <code>pass</code> and corresponding fail should be identical.
+</p>
+
+<h3><code>litmus.Test.fail(description)</code></h3>
+
+<p>
+    This assertion always fails and is generally combined with a call to <code>pass</code> (see above).
+</p>
+
+<h3><code>litmus.Test.ok(cond, description)</code></h3>
+
+<p>
+    This test passed if <code>cond</code> evaluates to true in a boolean context.
+</p>
+
+<h3><code>litmus.Test.nok(cond, description)</code></h3>
+
+<p>
+    This test passed if <code>cond</code> evaluates to false in a boolean context.
+</p>
+
+<h3><code>is</code></h3>
+
+<p>TODO</p>
+
+<h3><code>not</code></h3>
+
+<p>TODO</p>
+
+<h3><code>isa</code></h3>
+
+<p>TODO</p>
+
+<h3><code>gt</code></h3>
+
+<p>TODO</p>
+
+<h3><code>gte</code></h3>
+
+<p>TODO</p>
+
+<h3><code>lt</code></h3>
+
+<p>TODO</p>
+
+<h3><code>lte</code></h3>
+
+<p>TODO</p>
+
+<h3><code>like</code></h3>
+
+<p>TODO</p>
+
+<h3><code>unlike</code></h3>
+
+<p>TODO</p>
+
+<h3><code>throwsOk</code></h3>
+
+<p>TODO</p>
+
+
+
+
+

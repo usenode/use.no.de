@@ -1,0 +1,23 @@
+
+<% next(this) %>
+
+<% this.ribbon('tomyan/litmus.js') %>
+
+<~init>
+    this.mainNavSelected = 'litmus';
+    this.subNavItems =  [
+        {
+            'id'       : 'litmus-home',
+            'text'     : 'Litmus Home',
+            'longText' : 'Litmus Home',
+            'link'     : '/litmus'
+        },
+        {
+            'id'       : 'litmus-assertions',
+            'text'     : 'Assertions',
+            'longText' : 'Builtin Assertions',
+            'link'     : '/litmus/assertions'
+        }
+    ];
+</~init>
+
