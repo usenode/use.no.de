@@ -8,7 +8,10 @@
         <script type="text/javascript" src="/thirdparty/jquery-1.5.1.min.js"></script>
         <script type="text/javascript" src="/site.js"></script>
         
-        <link rel="stylesheet" type="text/css" href="/style.css" /> 
+        : if (this.stylesheetPath) {
+		    <link rel="stylesheet" type="text/css" href="<%= this.stylesheetPath %>" />
+        : }
+
         <link rel="stylesheet" type="text/css" href="/thirdparty/prettify/prettify.css"/>
         <!--[if IE 6]>
         	: /* height works like min-height in IE6 */
@@ -17,7 +20,7 @@
         <% this.head() %>
     </head>
     <body class="<% this.bodyClass() %>">
-		<% next(this) %>
+		<% this.page() %>
     </body>
 </html>
 
@@ -58,3 +61,51 @@
 	</div>
 </~method>
 
+<~method page>
+	: var sectionTitle = (this.sectionTitle) ? this.sectionTitle : 'UseNode';
+	: var sectionUrl   = (this.sectionTitle) ? this.sectionTitle.toLowerCase() : '';
+	<div class="section-title">
+	 <a href="/<%= sectionUrl %>"><%= sectionTitle %></a>
+	</div>
+	
+	<div class="page">
+		<div class="page-inner">
+			<div class="column">
+				<%
+					 if (this.subNavItems) {
+					 this.navigation('navigation local-navigation', this.subNavSelected, this.subNavItems);
+				 }
+				%>
+			</div>
+			<div class="column content">
+				<% next(this) %>
+			</div>
+		</div>
+	</div>
+	
+	<div class="site">
+	 <div class="site-logo">
+		 : if (this.mainNavSelected === 'home') {
+			 <h1>use.no.de</h1>
+		 : }
+		 : else {
+			 <a href="/">use.no.de</a>
+		 : }
+	 </div>
+	
+	 <%
+		 this.navigation('global-navigation', this.mainNavSelected, [
+			 { id: 'home',      link: '/',          text: 'Home' },
+			 { id: 'proton',    link: '/proton',    text: 'Proton' },
+			 { id: 'micro',     link: '/micro',     text: 'Micro' },
+			 { id: 'spectrum',  link: '/spectrum',  text: 'Spectrum' },
+			 { id: 'contact',   link: '/contact',   text: 'Contact' }
+		 ]);
+	 %>
+	 <% this.copyright() %>
+</div>
+</~method>
+
+<~init>
+	this.stylesheetPath = '/style.css';
+</~init>

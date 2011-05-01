@@ -1,17 +1,35 @@
-<~method bodyClass>home</~method>
+<~method page>
+	<div class="page">
+		<div class="page-inner">
+			<h1>UseNode</h1>
+			<p class="tagline">
+				A collection of technologies that were designed together to make it easy to build websites with <a href="http://nodejs.org/">Node.JS</a>
+			</p>
+			
+			<p class="get-started">
+				<a href="/getting-started">Get Started</a>
+			</p>
+			
+					
+			 <%
+				 this.navigation('global-navigation', this.mainNavSelected, [
+					 { id: 'proton',    link: '/proton',    text: 'Proton' },
+					 { id: 'micro',     link: '/micro',     text: 'Micro' },
+					 { id: 'spectrum',  link: '/spectrum',  text: 'Spectrum' },
+					 { id: 'contact',   link: '/contact',   text: 'Contact' }
+				 ]);
+			 %>
+			
+		</div>
+	</div>
+</~method>
 
 <~init>
+	this.stylesheetPath = '/style/home.css';
     this.mainNavSelected = 'home';
 </~init>
 
 <~method pageTitle>use.no.de</~method>
 
-<p>
-	a collection of technologies that were designed together to make it easy to build websites with <a href="http://nodejs.org/">Node.JS</a>
-</p>
-
-<p class="get-started">
-	<a href="/getting-started">Get Started</a>
-</p>
 
 
