@@ -3,8 +3,6 @@
 
 <~method pageTitle>Proton</~method>
 
-<h1>Proton</h1>
-
 <p>
     Proton is a tool for developing and running web applications for <a href="http://nodejs.org/">node.js</a>.
 
@@ -33,5 +31,5 @@
 <% this.navigation(null, null, this.subNavItems.slice(1), { textAttribute: 'longText' }) %>
 
 <~init>
-    this.subNavSelected = 'proton-home';
+
 </~init>

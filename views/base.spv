@@ -17,17 +17,29 @@
         <% this.head() %>
     </head>
     <body class="<% this.bodyClass() %>">
-    <div class="content">
-	    <div class="content-inner">
-            <% next(this) %>
+    	<div class="section-title">
+    	: if (this.sectionTitle) {
+			<a href="/<%= this.sectionTitle.toLowerCase() %>"><%= this.sectionTitle %></a>
+		: }
+    	</div>
+    	
+		<div class="page">
+			<div class="page-inner">
+				<div class="column">
+					<%
+						if (this.subNavItems) {
+							this.navigation('navigation local-navigation', this.subNavSelected, this.subNavItems);
+						}
+					%>
+				</div>
+				<div class="column content">
+					<% next(this) %>
+				</div>
+			</div>
 		</div>
-        <div class="copyright">
-	        Site developed by <a href="http://github.com/tomyan">Tom Yandell</a> &amp; <a href="http://www.twitter.com/richardhodgson">Richard Hodgson</a>.
-        </div>
-	</div>			
 
         <div class="site">
-            <div class="header">
+            <div class="site-logo">
                 : if (this.mainNavSelected === 'home') {
                     <h1>use.no.de</h1>
                 : }
@@ -37,7 +49,7 @@
             </div>
 
             <%
-                this.navigation('navigation', this.mainNavSelected, [
+                this.navigation('global-navigation', this.mainNavSelected, [
                     { id: 'home',      link: '/',          text: 'Home' },
                     { id: 'proton',    link: '/proton',    text: 'Proton' },
                     { id: 'micro',     link: '/micro',     text: 'Micro' },
@@ -45,15 +57,11 @@
                     { id: 'contact',   link: '/contact',   text: 'Contact' }
                 ]);
             %>
-
             
-            <%
-                if (this.subNavItems) {
-                    this.navigation('navigation secondary-nav', this.subNavSelected, this.subNavItems);
-                }
-            %>
-        </div>
-        
+            <div class="copyright">
+	        	Site developed by <a href="http://github.com/tomyan">Tom Yandell</a> &amp; <a href="http://www.twitter.com/richardhodgson">Richard Hodgson</a>.
+	        </div>
+        </div>    
     </body>
 </html>
 

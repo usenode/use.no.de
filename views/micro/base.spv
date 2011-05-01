@@ -5,10 +5,11 @@
 
 <~init>
     this.mainNavSelected = 'micro';
+    this.sectionTitle = 'Micro';
     this.subNavItems =  [
         {
             'id'       : 'micro-home',
-            'text'     : 'Micro Home',
+            'text'     : 'Home',
             'longText' : 'Micro Home',
             'link'     : '/micro'
         },

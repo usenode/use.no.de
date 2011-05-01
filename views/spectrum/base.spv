@@ -5,6 +5,7 @@
 
 <~init>
     this.mainNavSelected = 'spectrum';
+    this.sectionTitle = 'Spectrum';
     this.subNavItems =  [
         {
             'id'       : 'spectrum-home',

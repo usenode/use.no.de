@@ -5,13 +5,14 @@
 
 <~init>
     this.mainNavSelected = 'proton';
-    this.subNavItems =  [
+    this.sectionTitle = 'Proton';
+    this.subNavItems =  [/*
         {
             'id'       : 'proton-home',
             'text'     : 'Proton Home',
             'longText' : 'Proton Home',
             'link'     : '/proton'
-        }/*,
+        },
         {
             'id'       : 'proton-command-line',
             'text'     : 'Command-Line',
