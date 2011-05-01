@@ -14,7 +14,8 @@ body {
 	background: #222;
 }
 
-.page-inner {
+.page-inner,
+.copyright {
 	margin-left:auto;
 	margin-right:auto;
 	width: 60%;
@@ -84,4 +85,20 @@ p.get-started a {
 	float:left;
 	padding: 3px 5px;
 	margin: 18px 6px 0 0;
+}
+
+.copyright {
+	color: #444;
+
+	font-size: 13px;
+	text-align: right;
+	
+	clear: both;
+	position: relative;
+	top: 12px;
+}
+
+.copyright a {
+	color: #666;
+	text-decoration:none;
 }
