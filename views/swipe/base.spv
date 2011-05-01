@@ -5,6 +5,7 @@
 
 <~init>
     this.mainNavSelected = 'swipe';
+    this.sectionTitle = 'Swipe';
     this.subNavItems =  [
         {
             'id'       : 'swipe-home',

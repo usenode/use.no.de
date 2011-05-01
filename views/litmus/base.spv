@@ -5,6 +5,7 @@
 
 <~init>
     this.mainNavSelected = 'litmus';
+    this.sectionTitle = 'Litmus';
     this.subNavItems =  [
         {
             'id'       : 'litmus-home',

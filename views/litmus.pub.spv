@@ -7,8 +7,6 @@
 
 <~method pageTitle>Litmus</~method>
 
-<h1>Litmus</h1>
-
 <p>
     Litmus is a unit testing framework for JavaScript.
 </p>
