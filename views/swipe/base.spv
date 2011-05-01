@@ -1,0 +1,22 @@
+
+<% next(this) %>
+
+<% this.ribbon('tomyan/swipe.js') %>
+
+<~init>
+    this.mainNavSelected = 'swipe';
+    this.subNavItems =  [
+        {
+            'id'       : 'swipe-home',
+            'text'     : 'Swipe Home',
+            'longText' : 'Swipe Home',
+            'link'     : '/swipe'
+        },
+        {
+            'id'       : 'getting-started',
+            'text'     : 'Getting Started',
+            'longText' : 'Getting Started with Swipe',
+            'link'     : '/swipe/getting-started'
+        }
+    ];
+</~init>

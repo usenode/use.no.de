@@ -1,0 +1,31 @@
+
+<~inherit "/spectrum/base.spv" />
+
+<~init>
+    this.subNavSelected = 'spectrum-planned';
+</~init>
+
+<h1>Spectrum Planned Features</h1>
+
+<p>
+    The following are proposed features that anyone can pick up and work on:
+</p>
+
+<h2>Override Template Auto-Escaping</h2>
+
+<p>
+    Right now, all output to a template via expression tags (<code>&lt;%= ... %&gt;</code>) is automatically escaped for HTML. It should be possible to override this to allow html to be inserted (possible syntax: <code>&lt;%=! ... %&gt;</code>), as well as offering alternative encoding (e.g. uri component encoding <code>&lt;%=u ... %&gt;</code>, etc.).
+</p>
+
+<h2>Remove Template Auto-Escaping</h2>
+
+<p>
+    When a template outputs a format other than html, it would be nice to be able to switch off automatic escaping altogether. This could be done via a compile-time directive (maybe <code>&lt;~auto-escape off /&gt;</code>), which could be inherited (this is slightly contentious as it means that child templates need to have access to parents during compilation and need to be recompiled when a parent changes). Also, we could allow a block form (e.g. <code>&lt;~auto-escape off &gt; ... &lt;/~auto-escape&gt;</code>).
+</p>
+
+<h2>Compile Time Minification</h2>
+
+<p>
+    Provide options to remove whitespace from template output when the template is compiled. Whitespace should remain in the compiled code to preserve line numbers, just not passed to output. This should be provided with both template wide directive form (e.g. <code>&lt;~minify xml /&gt;</code>), as well as block form (e.g. <code>&lt;~minify off &gt; ... &lt;/~minify&gt;</code>). Initially support for following the rules for xml should be provided with &quot;xml&quot; minification. This is slightly inconvenient for html as you need to turn off minification within textareas, pre blocks, etc. so it would be good to support type &quot;html&quot; which would do the right thing in these cases.
+</p>
+

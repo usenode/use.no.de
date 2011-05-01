@@ -15,9 +15,9 @@
         {
             'id'       : 'proton-command-line',
             'text'     : 'Command-Line',
-            'longText' : 'Proton Command-Line Options',
+            'longText' : 'Proton Command-Line',
             'link'     : '/proton/cli'
-        }, 
+        }/*, 
         {
             'id'       : 'proton-api',
             'text'     : 'API',

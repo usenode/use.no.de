@@ -9,16 +9,8 @@
 			<p class="get-started">
 				<a href="/getting-started">Get Started</a>
 			</p>
-			
 					
-			 <%
-				 this.navigation('global-navigation', this.mainNavSelected, [
-					 { id: 'proton',    link: '/proton',    text: 'Proton' },
-					 { id: 'micro',     link: '/micro',     text: 'Micro' },
-					 { id: 'spectrum',  link: '/spectrum',  text: 'Spectrum' },
-					 { id: 'contact',   link: '/contact',   text: 'Contact' }
-				 ]);
-			 %>
+			<% this.globalNav() %>
 			
 		</div>
 	</div>

@@ -93,18 +93,22 @@
 		 : }
 	 </div>
 	
-	 <%
-		 this.navigation('global-navigation', this.mainNavSelected, [
-			 { id: 'home',      link: '/',          text: 'Home' },
-			 { id: 'proton',    link: '/proton',    text: 'Proton' },
-			 { id: 'micro',     link: '/micro',     text: 'Micro' },
-			 { id: 'spectrum',  link: '/spectrum',  text: 'Spectrum' },
-			 { id: 'contact',   link: '/contact',   text: 'Contact' }
-		 ]);
-	 %>
+	 <% this.globalNav() %>
 	 <% this.copyright() %>
 </div>
 </~method>
+
+<~method globalNav><%
+		 this.navigation('global-navigation', this.mainNavSelected, [
+			 /*{ id: 'home',      link: '/',          text: 'Home' },*/
+			 { id: 'proton',    link: '/proton',    text: 'Proton' },
+			 { id: 'micro',     link: '/micro',     text: 'Micro' },
+			 { id: 'spectrum',  link: '/spectrum',  text: 'Spectrum' },
+             { id: 'swipe',     link: '/swipe', text: 'Swipe' },
+             { id: 'litmus',    link: '/litmus', text: 'Litmus' },
+			 { id: 'contact',   link: '/contact',   text: 'Contact' }
+		 ]);
+%></~method>
 
 <~init>
 	this.stylesheetPath = '/style.css';

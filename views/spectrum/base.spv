@@ -17,6 +17,13 @@
             'text'     : 'Syntax',
             'longText' : 'Spectrum Template Syntax',
             'link'     : '/spectrum/syntax'
+        },
+        {
+            'id'       : 'spectrum-planned',
+            'text'     : 'Planned Features',
+            'longText' : 'Spectrum Planned Features',
+            'link'     : '/spectrum/planned'
         }
+
     ];
 </~init>
