@@ -28,8 +28,10 @@ dev_server = {
         var self = this;
         sys.debug('DEVSERVER: Starting server');
         self.watchFiles();
+        
+		var scriptName = process.ARGV[2] || 'server.js';
 
-        this.process = child_process.spawn(process.ARGV[0], ['server.js']);
+        this.process = child_process.spawn(process.ARGV[0], [scriptName]);
 
         this.process.stdout.addListener('data', function (data) {
 		process.stdout.write(data);
