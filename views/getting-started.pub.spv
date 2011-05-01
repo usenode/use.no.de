@@ -120,3 +120,13 @@ get('/', function (request, response) {
 	</li>
 -->
 </ul>
+
+<~init>
+ this.subNavItems = [
+	 { id: 'home',      link: '/',          text: 'Home' },
+	 { id: 'proton',    link: '/proton',    text: 'Proton' },
+	 { id: 'micro',     link: '/micro',     text: 'Micro' },
+	 { id: 'spectrum',  link: '/spectrum',  text: 'Spectrum' },
+	 { id: 'contact',   link: '/contact',   text: 'Contact' }
+ ];
+</~init>
