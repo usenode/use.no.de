@@ -1,0 +1,40 @@
+ <div class="section-title">
+	 <a href="/<%= this.sectionTitle.toLowerCase() %>"><%= this.sectionTitle %></a>
+ </div>
+ 
+ <div class="page">
+	 <div class="page-inner">
+		 <div class="column">
+			 <%
+				 if (this.subNavItems) {
+					 this.navigation('navigation local-navigation', this.subNavSelected, this.subNavItems);
+				 }
+			 %>
+		 </div>
+		 <div class="column content">
+			 <% next(this) %>
+		 </div>
+	 </div>
+ </div>
+
+ <div class="site">
+	 <div class="site-logo">
+		 : if (this.mainNavSelected === 'home') {
+			 <h1>use.no.de</h1>
+		 : }
+		 : else {
+			 <a href="/">use.no.de</a>
+		 : }
+	 </div>
+
+	 <%
+		 this.navigation('global-navigation', this.mainNavSelected, [
+			 { id: 'home',      link: '/',          text: 'Home' },
+			 { id: 'proton',    link: '/proton',    text: 'Proton' },
+			 { id: 'micro',     link: '/micro',     text: 'Micro' },
+			 { id: 'spectrum',  link: '/spectrum',  text: 'Spectrum' },
+			 { id: 'contact',   link: '/contact',   text: 'Contact' }
+		 ]);
+	 %>
+	 <% this.copyright() %>
+</div>

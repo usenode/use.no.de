@@ -17,11 +17,10 @@ body {
     font-size: 100%;
     font-family: Arial, sans;
     
-	background: #fff;
+	background: #222;
 }
 
 .page-inner,
-.section-title,
 .site-logo,
 .global-navigation,
 .copyright {
@@ -31,7 +30,8 @@ body {
 }
 
 .section-title {
-	margin-bottom: 18px;	
+	height: 75px;
+	background: #fff;
 }	
 
 .section-title a {
@@ -40,9 +40,8 @@ body {
 	color: #fff;
 	
 	padding: 8px 8px 4px 8px;
-	width: 20%;
 	display: inline;
-	margin-left: 24px;
+	margin-left: 18%;
 	
 	font-family: georgia;
 	font-weight: normal;
