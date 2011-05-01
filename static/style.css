@@ -89,10 +89,17 @@ body {
 	line-height:1.4;
 }
 
-.content h2 {
+.content h1 {
 	font-size: 32px;
 	letter-spacing: -1px;
 	color: #333;
+}
+
+.content h2 {
+	font-size: 28px;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #444;
 }
 
 .content p {
