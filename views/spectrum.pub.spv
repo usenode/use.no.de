@@ -4,9 +4,7 @@
 <~init>
     this.subNavSelected = 'spectrum-home';
 </~init>
-
-<h1>Spectrum</h1>
-
+	
 <p>
     Spectrum.js is a JavaScript template language targetted at both the server (e.g. node.js) and the client-side.
 </p>
