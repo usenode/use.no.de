@@ -43,54 +43,104 @@ else {
 <h3><code>litmus.Test.ok(cond, description)</code></h3>
 
 <p>
-    This test passed if <code>cond</code> evaluates to true in a boolean context.
+    Tests if <code>cond</code> evaluates to true in a boolean context.
 </p>
+
+<pre><code class="prettyprint">this.ok(1 === 1, 'one is equal to one');</code></pre>
 
 <h3><code>litmus.Test.nok(cond, description)</code></h3>
 
 <p>
-    This test passed if <code>cond</code> evaluates to false in a boolean context.
+    Tests if <code>cond</code> evaluates to false in a boolean context.
 </p>
 
-<h3><code>is</code></h3>
+<pre><code class="prettyprint">this.nok(1 === 2, 'one is not equal to two');</code></pre>
 
-<p>TODO</p>
+<h2>Comparison Assertions</h2>
+ 
+<h3><code>litmus.Test.is(val, expected, description)</code></h3>
 
-<h3><code>not</code></h3>
+<p>
+    Tests if the first argument (<code>val</code>) is equal to the second (<code>expected</code>). The value is first checked using the <code>==</code> operator. If this fails, then a canonicalised string representation is formed for each value and these are compared - i.e. it works for data structures that contain the same values.
+</p>
 
-<p>TODO</p>
+<pre><code class="prettyprint">this.is(myModule.add(1, 1), 2, 'one plus one equals two');</code></pre>
 
-<h3><code>isa</code></h3>
+<h3><code>litmus.Test.not(val, notExpected, description)</code></h3>
 
-<p>TODO</p>
+<p>
+    Tests if the first argument (<code>val</code>) is not equal to the second (<code>notExpected</code>). The same logic is applied to test for equality as for <code>is</code> above.
+</p>
 
-<h3><code>gt</code></h3>
+<pre><code class="prettyprint">this.is(myModule.add(1, 1), 3, 'one plus one does not equal three');</code></pre>
 
-<p>TODO</p>
+<h3><code>litmus.Test.like(val, regex, description)</code></h3>
 
-<h3><code>gte</code></h3>
+<p>
+    Tests if a value (<code>val</code> parameter) matches a regular expression (<code>regex</code> parameter).
+</p>
 
-<p>TODO</p>
+<pre><code class="prettyprint">this.like('valid', /^\w+$/, 'value is valid');</code></pre>
 
-<h3><code>lt</code></h3>
+<h3><code>litmus.Test.unlike(val, regex, description)</code></h3>
 
-<p>TODO</p>
+<p>
+    Tests if a value (<code>val</code> parameter) does not match a regular expression (<code>regex</code> parameter).
+</p>
 
-<h3><code>lte</code></h3>
+<pre><code class="prettyprint">this.like('not valid', /^\w+$/, 'value is not valid');</code></pre>
 
-<p>TODO</p>
+<h3><code>litmus.Test.gt(val, against, description)</code></h3>
 
-<h3><code>like</code></h3>
+<p>
+    Tests if a value (<code>val</code> parameter) is greater than another value (<code>against</code> parameter).
+</p>
 
-<p>TODO</p>
+<pre><code class="prettyprint">this.gt(2, 1, 'two is greater than one');</code></pre>
 
-<h3><code>unlike</code></h3>
+<h3><code>litmus.Test.gte(val, against, description)</code></h3>
 
-<p>TODO</p>
+<p>
+    Tests if a value (<code>val</code> parameter) is greater or equal to another value (<code>against</code> parameter).
+</p>
 
-<h3><code>throwsOk</code></h3>
+<pre><code class="prettyprint">this.gte(2, 1, 'two is greater or equal to one');</code></pre>
 
-<p>TODO</p>
+<h3><code>litmus.Test.lt(val, against, description)</code></h3>
+
+<p>
+    Tests if a value (<code>val</code> parameter) is less than another value (<code>against</code> parameter).
+</p>
+
+<pre><code class="prettyprint">this.lt(1, 2, 'one is less than two');</code></pre>
+
+<h3><code>litmus.Test.lte(val, against, description)</code></h3>
+
+<p>
+    Tests if a value (<code>val</code> parameter) is less or equal to another value (<code>against</code> parameter).
+</p>
+
+<pre><code class="prettyprint">this.lte(1, 2, 'one is less or equal to two');</code></pre>
+
+<h2>Advanced Assertions</h2>
+
+<h3><code>litmus.Test.throwsOk()</code></h3>
+
+<p>
+    Tests if a function raises an exception, and that exception matches a regular expression.
+</p>
+
+<pre><code class="prettyprint">this.throwsOk(function () {
+    throw new Error('expected exception');
+}, /expected/, 'code throws as expected');</code></pre>
+
+<h3><code>litmus.Test.isa(instance, expectedClass, description)</code></h3>
+
+<p>
+    Tests if an object (<code>instance</code> parameter) is a member of a class (<code>expectedClass</code> parameter). The assertion passes if the object was created using the function <code>expectedClass</code>, or if it was created with any of the base classes (those that can be retrieved using the <code>base</code> property of <code>expectedClass</code> and the <code>base</code> property of that function, and so on).
+</p>
+
+<pre><code class="prettyprint">this.isa(stimpy, Cat, 'Happy, Happy, Joy, Joy');</code></pre>
 
 
 
