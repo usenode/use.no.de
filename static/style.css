@@ -86,6 +86,9 @@ body {
 	font-size: 32px;
 	letter-spacing: -1px;
 	color: #333;
+	
+	position: relative;
+	top: -8px;
 }
 
 .content h2 {
@@ -121,6 +124,11 @@ pre {
 pre {
 	padding: 12px;
 	line-height: 1.4;
+}
+
+.content p code {
+	border-top: 4px solid #fff;
+	border-bottom: 2px solid #fff;
 }
 
 /*some prettprint arguing*/
