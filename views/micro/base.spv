@@ -17,6 +17,12 @@
             'text'     : 'Getting Started',
             'longText' : 'Getting Started with Micro and Spectrum',
             'link'     : '/micro/getting-started'
+        },
+        {
+            'id'       : 'routes',
+            'text'     : 'Routes',
+            'longText' : 'Routing guide',
+            'link'     : '/micro/routes'
         }
     ];
 </~init>

@@ -1,0 +1,86 @@
+
+<~inherit "/micro/base.spv" />
+
+<~init>
+    this.subNavSelected = 'getting-started';
+</~init>
+
+<h1>Routing</h1>
+
+<p>All routes are relative to a root URL that is expressed outside of the webapp (Micro.js webapps can easily be moved to a diffrent URL space).</p>
+
+<h2>Simple Routes</h2>
+
+<p>A simple route is just a string that matches the path of the requested URL (e.g. '/').</p>
+
+<h2>Routes with Named Parameters</h2>
+
+<p>A route with named parameters contains named placeholder starting with a colon.</p>
+
+<pre><code>get('/hello/:name', function (request, response, args) {
+    response.ok('text/html');
+    return 'hello, ' + args.name;
+});
+</code></pre>
+
+<p>
+    Requests to <code>/hello/tom</code> now result in "hello, tom". By default placeholders will accept any sequence of one or more characters excluding a forward slash, although this can be overridden (see "Validating Parameters for Named and Postional Parameters" below).
+</p>
+
+<h2>Routes with Positional Parameters</h2>
+
+<p>Alternatively you can create placeholders with an asterisk, although you can't mix named and positional placeholder. For example:</p>
+
+<pre><code>get('/hello/*', function (request, response, name) {
+    response.ok('text/html');
+    return 'hello, ' + name;
+});
+</code></pre>
+
+<p>This behaves the same as the example with named parameters above. By default placeholders will accept any sequence of one or more characters excluding a forward slash, although this can be overridden (see "Validating Parameters for Named and Postional Parameters" below).</p>
+
+<h2>Validating Parameters for Named and Positional Parameters</h2>
+
+<p>In order to restrict the values that will be accepted by a route, a placeholder can be followed by a fragment of a regular expression contained in round brackets. As the regular expression is specified as part of a string rather than as a regular expression literal, backslashes will have to be in pairs as they would for the parameter to new RegExp. For example:</p>
+
+<pre><code>get('/hello/:name(\\w+)', function (request, response, args) {
+    // ...
+});
+</code></pre>
+
+<p>This works for both named and positional placeholders (e.g. '/hello/*(\\w+)' with positional placeholders).</p>
+
+<h2>RegExp Routes</h2>
+
+<p>If the first parameter to get, post, etc. is a regular expression, the corresponding action will be invoked when the regular expression matches the path in the http request. Any captures in the regular expression are passed as arguments to the action callback. For example:</p>
+
+<pre><code>get(/^\/hello\/(\w+)$/, function (request, response, name) {
+    response.ok('text/html');
+    return 'hello, ' + name;
+});
+</code></pre>
+
+<p>This behaves the same as for the previous examples.</p>
+
+<h2>Function Routes</h2>
+
+<p>If you've got really complicated requirements for routing, you can pass a function as the route. The function is passed the request path and its invocant (the value of "this" within the function) is the request. The function should return an containing zero or more arguments for the action callback if the route matches. For example:</p>
+
+<pre><code>get(function (path) {
+    if (path === '/foo' && this.queryString === '?a=1') {
+        return ['bar'];
+    }
+}, function (request, response, baz) {
+    // baz contains 'bar' here
+});
+</code></pre>
+
+<p>Although this feature is supported, it isn't really recommended as it makes the code less readable/maintainable. The recommended practise is to use one of the other routes and put non-path based checks into the action callback, moving onto the next route by returning:</p>
+
+<pre><code>get('/foo', function (request, response) {
+    if (this.queryString !== '?a=1') {
+        return;
+    }
+    // ...
+})
+</code></pre>
