@@ -5,7 +5,7 @@
     this.subNavSelected = 'getting-started';
 </~init>
 
-<h1>Routing</h1>
+<h1>Routes</h1>
 
 <p>All routes are relative to a root URL that is expressed outside of the webapp (Micro.js webapps can easily be moved to a diffrent URL space).</p>
 
@@ -29,7 +29,7 @@
 
 <h2>Routes with Positional Parameters</h2>
 
-<p>Alternatively you can create placeholders with an asterisk, although you can't mix named and positional placeholder. For example:</p>
+<p>Alternatively you can create placeholders with an asterisk, although you can't mix named and positional placeholder.</p>
 
 <pre><code>get('/hello/*', function (request, response, name) {
     response.ok('text/html');
@@ -37,18 +37,18 @@
 });
 </code></pre>
 
-<p>This behaves the same as the example with named parameters above. By default placeholders will accept any sequence of one or more characters excluding a forward slash, although this can be overridden (see "Validating Parameters for Named and Postional Parameters" below).</p>
+<p>This behaves the same as the example with named parameters above. By default placeholders will accept any sequence of one or more characters excluding a forward slash, although this can be overridden (see below).</p>
 
 <h2>Validating Parameters for Named and Positional Parameters</h2>
 
-<p>In order to restrict the values that will be accepted by a route, a placeholder can be followed by a fragment of a regular expression contained in round brackets. As the regular expression is specified as part of a string rather than as a regular expression literal, backslashes will have to be in pairs as they would for the parameter to new RegExp. For example:</p>
+<p>In order to restrict the values that will be accepted by a route, a placeholder can be followed by a fragment of a regular expression contained in round brackets. As the regular expression is specified as part of a string rather than as a regular expression literal, backslashes will have to be in pairs as they would for the parameter to new RegExp.</p>
 
 <pre><code>get('/hello/:name(\\w+)', function (request, response, args) {
     // ...
 });
 </code></pre>
 
-<p>This works for both named and positional placeholders (e.g. '/hello/*(\\w+)' with positional placeholders).</p>
+<p>This works for both named and positional placeholders (e.g. <code>/hello/*(\\w+)</code> with positional placeholders).</p>
 
 <h2>RegExp Routes</h2>
 
