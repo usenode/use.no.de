@@ -110,5 +110,5 @@
 %></~method>
 
 <~init>
-	this.stylesheetPath = '/style.css';
+	this.stylesheetPath = '/style/pages.css';
 </~init>
