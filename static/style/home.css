@@ -70,7 +70,10 @@ p.get-started a {
 
 .global-navigation {
 	list-style: none;
-	
+}
+
+.global-navigation li {
+	display:inline;
 }
 
 .global-navigation a {
