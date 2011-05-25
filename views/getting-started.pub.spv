@@ -28,7 +28,7 @@
     We'll use Proton to run our <code>helloworld</code> project, so lets install it with npm.
 </p>
 
-<pre><code>npm install proton
+<pre><code>npm -g install proton
 </code></pre>
 
 <p>

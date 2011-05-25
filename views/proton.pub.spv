@@ -22,11 +22,14 @@
     <a href="http://npmjs.org/">Npm</a> is recommended for development, although for production you might want to find/build a package for your operating system:
 </p>
 
-<pre><code>npm install proton</code></pre>
+<pre><code>npm -g install proton</code></pre>
 
 <!--
 <h2>Documentation</h2>
 -->
+<p>
+    See the <a href="https://github.com/isaacs/npm/blob/master/doc/folders.md">Npm folder documentation</a> for more information about the <code>-g</code> switch.
+</p>
 
 <% this.navigation(null, null, this.subNavItems.slice(1), { textAttribute: 'longText' }) %>
 
