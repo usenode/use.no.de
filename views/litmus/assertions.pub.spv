@@ -72,7 +72,7 @@ else {
     Tests if the first argument (<code>val</code>) is not equal to the second (<code>notExpected</code>). The same logic is applied to test for equality as for <code>is</code> above.
 </p>
 
-<pre><code class="prettyprint">this.is(myModule.add(1, 1), 3, 'one plus one does not equal three');</code></pre>
+<pre><code class="prettyprint">this.not(myModule.add(1, 1), 3, 'one plus one does not equal three');</code></pre>
 
 <h3><code>litmus.Test.like(val, regex, description)</code></h3>
 
@@ -88,7 +88,7 @@ else {
     Tests if a value (<code>val</code> parameter) does not match a regular expression (<code>regex</code> parameter).
 </p>
 
-<pre><code class="prettyprint">this.like('not valid', /^\w+$/, 'value is not valid');</code></pre>
+<pre><code class="prettyprint">this.unlike('not valid', /^\w+$/, 'value is not valid');</code></pre>
 
 <h3><code>litmus.Test.gt(val, against, description)</code></h3>
 
