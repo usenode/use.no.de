@@ -7,6 +7,8 @@
 
 <h1>Routes</h1>
 
+<~method pageTitle>Micro Routes</~method>
+
 <p>All routes are relative to a root URL that is expressed outside of the webapp (Micro.js webapps can easily be moved to a diffrent URL space).</p>
 
 <h2>Simple Routes</h2>

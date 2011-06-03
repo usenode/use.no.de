@@ -5,6 +5,8 @@
     this.subNavSelected = 'getting-started';
 </~init>
 
+<~method pageTitle>Getting Started with Micro and Spectrum</~method>
+
 <h1>Getting Started with Micro and Spectrum</h1>
 
 <p>
