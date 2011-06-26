@@ -66,6 +66,8 @@
 	<div class="section-title">
 	 <a href="/<%= sectionUrl %>"><%= sectionTitle %></a>
 	</div>
+    
+    <% this.quickLinks(sectionUrl) %>
 	
 	<div class="page">
 		<div class="page-inner">
@@ -108,6 +110,25 @@
 			 { id: 'contact',   link: '/contact',   text: 'Contact' }
 		 ]);
 %></~method>
+
+<~method quickLinks (sectionUrl)><%
+    var quickLinks = [
+        { id: 'proton',    link: '/proton',    text: 'Proton' },
+        { id: 'micro',     link: '/micro',     text: 'Micro' },
+        { id: 'spectrum',  link: '/spectrum',  text: 'Spectrum' },
+        { id: 'litmus',    link: '/litmus', text: 'Litmus' }
+    ];
+    
+    for(var i = 0, l = quickLinks.length; i<l; i++) {
+        if (quickLinks[i].id == sectionUrl) {
+            quickLinks.splice(i, 1);
+            break;
+        }
+    }
+    
+    this.navigation('quick-links', '', quickLinks);
+%></~method>
+
 
 <~init>
 	this.stylesheetPath = '/style/pages.css';

@@ -45,6 +45,27 @@ body {
 	text-decoration: none;
 }
 
+.quick-links {
+    position: absolute;
+    list-style: none inside;
+    top: 0;
+    left: 60%;
+}
+
+.quick-links li {
+    float:left;
+}
+
+.quick-links li a {
+    display: block;
+    padding: 0 6px 3px;
+    
+    text-decoration: none;
+    font-family: georgia;
+    color: #fff;
+    background: #990000;
+}
+
 .page {
 	background: #eee;
 	color: #444;
