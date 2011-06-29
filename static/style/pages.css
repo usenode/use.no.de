@@ -118,6 +118,7 @@ body {
 	font-weight: normal;
 	letter-spacing: 0px;
 	color: #444;
+    margin-bottom: 16px;
 }
 
 .content p {
@@ -162,6 +163,10 @@ ul,
 ol {
 	list-style: inside square;
 	
+}
+
+.content li {
+   padding-left: 4px;
 }
 
 .site {
