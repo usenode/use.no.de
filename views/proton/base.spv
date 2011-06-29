@@ -3,8 +3,6 @@
 <% this.ribbon('tomyan/proton.js') %>
 
 <~init>
-    this.mainNavSelected = 'proton';
-    this.sectionTitle = 'Proton';
     this.subNavItems =  [/*
         {
             'id'       : 'proton-home',

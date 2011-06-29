@@ -4,8 +4,6 @@
 <% this.ribbon('tomyan/litmus.js') %>
 
 <~init>
-    this.mainNavSelected = 'litmus';
-    this.sectionTitle = 'Litmus';
     this.subNavItems =  [
         {
             'id'       : 'litmus-home',

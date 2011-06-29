@@ -3,8 +3,6 @@
 <% this.ribbon('tomyan/micro.js') %>
 
 <~init>
-    this.mainNavSelected = 'micro';
-    this.sectionTitle = 'Micro';
     this.subNavItems =  [
         {
             'id'       : 'micro-home',

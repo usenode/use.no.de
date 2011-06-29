@@ -60,16 +60,26 @@
 	</div>
 </~method>
 
+<~method getSectionTitleFromPath(path)><%
+    var s = path.split("/")[1];
+    if (s == 'getting-started' || s =='contact') {
+        return 'UseNode';
+    }
+    return s.charAt(0).toUpperCase() + s.slice(1);;
+%></~method>
+
 <~method page>
-	: var sectionTitle = (this.sectionTitle) ? this.sectionTitle : 'UseNode';
-	: var sectionUrl   = (this.sectionTitle) ? this.sectionTitle.toLowerCase() : '';
+    : var sectionTitle = this.getSectionTitleFromPath(this.args.pathInfo);
+    : this.mainNavSelected = sectionTitle.toLowerCase();
+    : var sectionUrl   = (sectionTitle != 'UseNode') ? sectionTitle.toLowerCase() : '';
 	<div class="section-title">
-	 <a href="/<%= sectionUrl %>"><%= sectionTitle %></a>
+        <a href="/<%= sectionUrl %>"><%= sectionTitle %></a>
 	</div>
     
     <% this.quickLinks(sectionUrl) %>
 	
 	<div class="page">
+    <% this.args.pathInfo %>
 		<div class="page-inner">
 			<div class="column">
 				<%
