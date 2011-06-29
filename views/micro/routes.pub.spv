@@ -8,49 +8,108 @@
 <h1>Routes</h1>
 
 <~method pageTitle>Micro Routes</~method>
-
+<!-- TODO whaa?
 <p>All routes are relative to a root URL that is expressed outside of the webapp (Micro.js webapps can easily be moved to a diffrent URL space).</p>
+-->
 
-<h2>Simple Routes</h2>
+<p>
+    A route is a URL path you want your application to respond to.
+    You can have as many routes as you want.
+</p>
 
-<p>A simple route is just a string that matches the path of the requested URL (e.g. '/').</p>
+<p>
+    A route can be as simple as:
+</p>
 
-<h2>Routes with Named Parameters</h2>
+<pre><code class="unpretty">/users/tom
+</code></pre>
 
-<p>A route with named parameters contains named placeholder starting with a colon.</p>
+<p>
+    A Micro application responds to a route using a handler, such as <code>get</code>.
+</p>
 
-<pre><code>get('/hello/:name', function (request, response, args) {
+<pre><code>get('/users/tom', function (request, response, args) {
+    response.ok('text/html');
+    return 'hello, tom';
+});
+</code></pre>
+
+<p>
+    The application will now respond to <a href="http://localhost:8080/users/tom">http://localhost:8080/users/tom</a>.
+</p>
+
+<h2>Named Parameters</h2>
+
+<p>
+    Routes can include placeholders called named parameters.
+</p>
+
+<p>
+    This allows your application to respond to routes based on their structure rather than just their content.
+    A named parameter starts with a colon <code>:</code>.
+</p>
+
+<pre><code>get('/users/:name', function (request, response, args) {
     response.ok('text/html');
     return 'hello, ' + args.name;
 });
 </code></pre>
 
 <p>
-    Requests to <code>/hello/tom</code> now result in "hello, tom". By default placeholders will accept any sequence of one or more characters excluding a forward slash, although this can be overridden (see "Validating Parameters for Named and Postional Parameters" below).
+    The URL <a href="http://localhost:8080/users/tom">http://localhost:8080/users/tom</a> still works, however you can now also call <a href="http://localhost:8080/users/richard">http://localhost:8080/users/richard</a> too.
 </p>
 
-<h2>Routes with Positional Parameters</h2>
+<p>
+    Placeholders can be named with any characters, except a forward slash.
+    You can override this, see <a href="#validating-named-and-postional-parameters">Validating Named and Postional Parameters</a> below.
+</p>
 
-<p>Alternatively you can create placeholders with an asterisk, although you can't mix named and positional placeholder.</p>
+<h2>Positional Parameters</h2>
 
-<pre><code>get('/hello/*', function (request, response, name) {
+<p>
+    Alternatively to named parameters, you can create routes containing placeholders with an asterisk <code>*</code>.
+</p>
+
+<p>
+    The matched values are then passed to your handler as parameters.
+</p>
+
+<pre><code>get('/users/*/*', function (request, response, firstname, surname) {
     response.ok('text/html');
-    return 'hello, ' + name;
+    return 'hello, ' + firstname + ' ' + surname;
 });
 </code></pre>
 
-<p>This behaves the same as the example with named parameters above. By default placeholders will accept any sequence of one or more characters excluding a forward slash, although this can be overridden (see below).</p>
+<p>
+    The route above would be called when you visit <a href="http://localhost:8080/users/tom/yandell">http://localhost:8080/users/tom/yandell</a>.
+</p>
 
-<h2>Validating Parameters for Named and Positional Parameters</h2>
+<p>
+    You can't mix named parameters and positional parameters in the same route.
+</p>
 
-<p>In order to restrict the values that will be accepted by a route, a placeholder can be followed by a fragment of a regular expression contained in round brackets. As the regular expression is specified as part of a string rather than as a regular expression literal, backslashes will have to be in pairs as they would for the parameter to new RegExp.</p>
+<h2 id="validating-named-and-postional-parameters">Validating Named and Positional Parameters</h2>
 
-<pre><code>get('/hello/:name(\\w+)', function (request, response, args) {
-    // ...
+<p>
+    In order to restrict the values that will be accepted by a route, a placeholder can be followed by a regular expression fragement contained in brackets.
+</p>
+
+<pre><code>get('/users/:name(\\w+)', function (request, response, args) {
+    response.ok('text/html');
+    return 'hello, ' + firstname + ' ' + surname;
 });
 </code></pre>
 
-<p>This works for both named and positional placeholders (e.g. <code>/hello/*(\\w+)</code> with positional placeholders).</p>
+<p>
+    This route will match <a href="http://localhost:8080/users/tom">http://localhost:8080/users/tom</a>, but won't match a placeholder containing non-alphanumeric characters such as <a href="http://localhost:8080/users/$-;">http://localhost:8080/users/$-;</a>.
+</p>
+<p>
+    As the regular expression is specified as part of a string rather than as a regular expression literal, backslashes will have to be in pairs as they would for the parameter to a <code>new RegExp</code>.
+</p>
+
+<p>
+    This works for both named and positional placeholders (e.g. <code>/hello/*(\\w+)</code>).
+</p>
 
 <h2>RegExp Routes</h2>
 
