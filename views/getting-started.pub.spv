@@ -98,11 +98,11 @@ get('/', function (request, response) {
     In the root of your <code>helloworld</code> project directory, start up <code>proton</code>.
 </p>
 
-<pre><code>proton
-</code></pre>
+<pre><code>proton -r</code></pre>
 
 <p>
     You can now visit <a href="http://localhost:8080/">http://localhost:8080/</a> in your browser to see the text "hello, world".
+    The <code>-r</code> option means that changes you make to your webapp will be automatically reloaded to make development faster - don't use the option in production.
 </p>
 
 <h2>Next steps</h2>
