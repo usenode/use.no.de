@@ -41,11 +41,17 @@ get('/', function (request, response) {
 <h2>Right, what next?</h2>
 
 <ul>
+<!--
+WIP
     <li>
         See a <a href="/getting-started/building-a-todo-list-app">more in-depth example</a>.
     </li>
+-->
     <li>
-        Do fancier <a href="/micro/routes">URL matching</a>.
+        Learn how <a href="/proton/cli#development">Proton can help with development</a>.
+    </li>
+    <li>
+        Try some fancier <a href="/micro/routes">URL matching</a>.
     </li>
     <li>
         Create HTML templates with <a href="/spectrum/using-spectrum-with-micro">Spectrum</a>.
@@ -58,9 +64,7 @@ get('/', function (request, response) {
     </li>
     
 <!--
-	<li>
-	    Learn more about Micro's URL <a href="/micro/routing-syntax">routing syntax</a>.
-	</li>
+
 	<li>
 	    Set up simple <a href="/micro/guides/static-asset-handling">static asset handling</a>.
 	</li>
