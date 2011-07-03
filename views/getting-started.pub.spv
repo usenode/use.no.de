@@ -31,11 +31,11 @@ get('/', function (request, response) {
     Now run your app with <a href="">Proton</a>.
 </p>
 
-<pre><code>proton
-</code></pre>
+<pre><code>proton -r</code></pre>
 
 <p>
-    That's it, visit <a href="http://localhost:8080/">http://localhost:8080/</a> in your browser.
+    You can now visit <a href="http://localhost:8080/">http://localhost:8080/</a> in your browser to see the text "hello, world".
+    The <code>-r</code> option means that changes you make to your webapp will be automatically reloaded to make development faster - don't use the option in production.
 </p>
 
 <h2>Right, what next?</h2>
@@ -81,3 +81,4 @@ WIP
         { id: 'contact',        link: '/contact',                        text: 'Contact' }
     ];
 </~init>
+
