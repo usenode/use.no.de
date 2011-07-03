@@ -8,13 +8,21 @@
 <h1>Proton Command-Line</h1>
 
 <p>
-    Proton includes the command-line program <code>proton</code>, which is used to run web apps created with any proton compatible framework. This can be used during development, as well as by init scripts to run your web app in production.
+    Proton includes the command-line program <code>proton</code>, which is used to run web apps created with any proton compatible framework.
+</p>
+
+<p>
+    This can be used during development, as well as by init scripts to run your web app in production.
 </p>
 
 <h2>Usage</h2>
 
 <p>
-    Most of the time you will be running <code>proton</code> while developing a web application. If you place your web app in your project in <code>lib/webapp.js</code> (recommended), then you can run your webapp from the root directory by running:
+    Most of the time you will be running <code>proton</code> while developing a web application.
+</p>
+
+<p>
+    If you place your web app in your project in <code>lib/webapp.js</code> (which is the convention), then you can run your webapp from the root directory by running:
 </p>
 
 <pre><code>proton</code></pre>
@@ -25,17 +33,70 @@
 
 <pre><code>proton --port 8080</code></pre>
 
+<h2 id="development">Development</h2>
+
+<p>
+    While developing your project, your application will change continously.
+</p>
+
+<p>
+    Rather than having to stop and restart <code>proton</code> each time, you can use the <code>-r</code> argument to hot reload your JavaScript files every time your application receives a request.
+</p>
+
+<pre><code>proton -r</code></pre>
+
+<p>
+    This argument is designed for development only, in production it will affect the performance of your application.
+</p>
+
 <h2>Command-Line Options</h2>
 
-<pre>
---webapp    (-w) PATH - relative path to the module containing the webapp (default lib/webapp.js)
---port      (-p) NUMBER - the port to listen on (default 8000)
---pidfile   (-P) PATH - file that the web app's PID should be written to
---logdir    (-l) PATH - folder where logs should be written to
---uid       (-u) IDENTIFIER - username or uid that the web app should run as
---gid       (-g) IDENTIFIER - group name or gid that the web app should run as
---silent    (-s) run without sending output to the terminal
---daemonise (-d) detach from the terminal and deamonise after starting
---noreload  (-n) do not attempt to automatically pick up changes (use in production)
---help      (-h) display this message
-</pre>
+<h3>Path</h3>
+<p>
+    <code>--webapp</code> <code>-w</code> <em>PATH</em> relative path to the module containing the webapp (default lib/webapp.js).
+</p>
+
+<h3>Port</h3>
+<p>
+    <code>--port</code> <code>-p</code> <em>NUMBER</em> the port to listen on (default 8000).
+</p>
+
+<h3>Pidfile</h3>
+<p>
+    <code>--pidfile</code> <code>-P</code> <em>PATH</em> file that the web app's PID should be written to.
+</p>
+
+<h3>Logdir</h3>
+<p>
+    <code>--logdir</code> <code>-l</code> <em>PATH</em> folder where logs should be written to.
+</p>
+
+<h3>Uid</h3>
+<p>
+    <code>--uid</code> <code>-u</code> <em>IDENTIFIER</em> username or uid that the web app should run as.
+</p>
+
+<h3>Gid</h3>
+<p>
+    <code>--gid</code> <code>-g</code> <em>IDENTIFIER</em> group name or gid that the web app should run as.
+</p>
+
+<h3>Silent</h3>
+<p>
+    <code>--silent</code> <code>-s</code> run without sending output to the terminal.
+</p>
+
+<h3>Daemonise</h3>
+<p>
+    <code>--daemonise</code> <code>-d</code> detach from the terminal and deamonise after starting.
+</p>
+
+<h3>Reload</h3>
+<p>
+    <code>--reload</code> <code>-r</code> automatically pick up changes (do not use in production).
+</p>
+
+<h3>Help</h3>
+<p>
+    <code>--help</code> <code>-h</code> display all arguments.
+</p>

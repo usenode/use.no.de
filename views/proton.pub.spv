@@ -13,7 +13,7 @@
 </p>
 
 <p>
-    Once installed, Proton can be used to run a web application via the <code>proton</code> command from the shell. Run <code>proton --help</code> to see a list of options.
+    Once installed, Proton can be used to run a web application via the <code>proton</code> command from the shell. Run <code>proton --help</code> to see a list <a href="/proton/cli">command line arguments</a>.
 </p>
 
 <h2>Installing</h2>
