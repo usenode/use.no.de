@@ -35,7 +35,7 @@
 </code></pre>
 
 <p>
-    The application will now respond to <a href="http://localhost:8080/users/tom">http://localhost:8080/users/tom</a>.
+    The application will now respond to <a href="http://localhost:8000/users/tom">/users/tom</a>.
 </p>
 
 <h2>Named Parameters</h2>
@@ -56,7 +56,7 @@
 </code></pre>
 
 <p>
-    The URL <a href="http://localhost:8080/users/tom">http://localhost:8080/users/tom</a> still works, however you can now also call <a href="http://localhost:8080/users/richard">http://localhost:8080/users/richard</a> too.
+    The URL <a href="http://localhost:8000/users/tom">/users/tom</a> still works, however you can now also call <a href="http://localhost:8000/users/richard">/users/richard</a> too.
 </p>
 
 <p>
@@ -81,7 +81,7 @@
 </code></pre>
 
 <p>
-    The route above would be called when you visit <a href="http://localhost:8080/users/tom/yandell">http://localhost:8080/users/tom/yandell</a>.
+    The route above would be called when you visit <a href="http://localhost:8000/users/tom/yandell">/users/tom/yandell</a>.
 </p>
 
 <p>
@@ -101,7 +101,7 @@
 </code></pre>
 
 <p>
-    This route will match <a href="http://localhost:8080/users/tom">http://localhost:8080/users/tom</a>, but won't match a placeholder containing non-alphanumeric characters such as <a href="http://localhost:8080/users/$-;">http://localhost:8080/users/$-;</a>.
+    This route will match <a href="http://localhost:8000/users/tom">/users/tom</a>, but won't match a placeholder containing non-alphanumeric characters such as <a href="http://localhost:8000/users/$-;">/users/$-;</a>.
 </p>
 <p>
     As the regular expression is specified as part of a string rather than as a regular expression literal, backslashes will have to be in pairs as they would for the parameter to a <code>new RegExp</code>.

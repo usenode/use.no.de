@@ -42,16 +42,16 @@ get('/', function (request, response) {
 
 <ul>
     <li>
-        See a <a>more in-depth example</a>.
+        See a <a href="/getting-started/building-a-todo-list-app">more in-depth example</a>.
     </li>
     <li>
         Do fancier <a href="/micro/routes">URL matching</a>.
     </li>
     <li>
-        Create HTML templates with <a href="/spectrum/getting-started">Spectrum</a>.
+        Create HTML templates with <a href="/spectrum/using-spectrum-with-micro">Spectrum</a>.
     </li>
     <li>
-        Start <a>writing unit tests with Litmus</a>.
+        Start <a href="/litmus">writing unit tests with Litmus</a>.
     </li>
     <li>
         Have a look at <a href="/getting-started/what-does-what">everything we offer</a>.
@@ -68,11 +68,12 @@ get('/', function (request, response) {
 </ul>
 
 <~init>
- this.subNavItems = [
-	 { id: 'home',      link: '/',          text: 'Home' },
-	 { id: 'proton',    link: '/proton',    text: 'Proton' },
-	 { id: 'micro',     link: '/micro',     text: 'Micro' },
-	 { id: 'spectrum',  link: '/spectrum',  text: 'Spectrum' },
-	 { id: 'contact',   link: '/contact',   text: 'Contact' }
- ];
+    this.subNavItems = [
+        { id: 'home',           link: '/',                               text: 'Home' },
+        { id: 'what-does-what', link: '/getting-started/what-does-what', text: 'What does what?' },
+        { id: 'proton',         link: '/proton',                         text: 'Proton' },
+        { id: 'micro',          link: '/micro',                          text: 'Micro' },
+        { id: 'spectrum',       link: '/spectrum',                       text: 'Spectrum' },
+        { id: 'contact',        link: '/contact',                        text: 'Contact' }
+    ];
 </~init>

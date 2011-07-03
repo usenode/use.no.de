@@ -6,22 +6,28 @@
     this.subNavItems =  [
         {
             'id'       : 'spectrum-home',
-            'text'     : 'Spectrum Home',
-            'longText' : 'Spectrum Home',
+            'text'     : 'Getting Started',
+            'longText' : 'Getting Started',
             'link'     : '/spectrum'
+        },
+        {
+            'id'       : 'using-spectrum-with-micro',
+            'text'     : 'Using with Micro',
+            'longText' : 'Using Spectrum with Micro',
+            'link'     : '/spectrum/using-spectrum-with-micro'
         },
         {
             'id'       : 'spectrum-syntax',
             'text'     : 'Syntax',
             'longText' : 'Spectrum Template Syntax',
             'link'     : '/spectrum/syntax'
-        },
+        }/* ,
         {
             'id'       : 'spectrum-planned',
             'text'     : 'Planned Features',
             'longText' : 'Spectrum Planned Features',
             'link'     : '/spectrum/planned'
-        }
+        }*/
 
     ];
 </~init>

@@ -55,6 +55,5 @@ view.render('/index.spv', {}).then(function (output) {
     This example assumes that the file you invoke it from is in a directory that is a sibling of the views directory.
 </p>
 
-<h2>Documentation</h2>
-
-<% this.navigation(null, null, this.subNavItems.slice(1), { textAttribute: 'longText' }) %>
+<p>
+    You can <a href="/spectrum/using-spectrum-with-micro">use Spectrum with Micro</a>.
