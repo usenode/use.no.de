@@ -35,7 +35,10 @@ get('/', function (request, response) {
 
 <p>
     You can now visit <a href="http://localhost:8080/">http://localhost:8080/</a> in your browser to see the text "hello, world".
-    The <code>-r</code> option means that changes you make to your webapp will be automatically reloaded to make development faster - don't use the option in production.
+</p>
+
+<p>
+    The <code>-r</code> argument means that changes you make to your webapp will be automatically reloaded, making <a href="/proton/cli#development">development faster</a>.
 </p>
 
 <h2>Right, what next?</h2>
@@ -47,9 +50,6 @@ WIP
         See a <a href="/getting-started/building-a-todo-list-app">more in-depth example</a>.
     </li>
 -->
-    <li>
-        Learn how <a href="/proton/cli#development">Proton can help with development</a>.
-    </li>
     <li>
         Try some fancier <a href="/micro/routes">URL matching</a>.
     </li>
