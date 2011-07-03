@@ -1,0 +1,158 @@
+<~inherit "/spectrum/base.spv" />
+
+<~init>
+    this.subNavSelected = 'using-spectrum-with-micro';
+</~init>
+
+<h1>Using Spectrum with Micro</h1>
+
+<~method pageTitle>Using Spectrum with Micro</~method>
+
+<p>
+    Spectrum can easily be added to a <a href="/micro">Micro</a> webapp.
+</p>
+
+<p>
+    For example, we want to use Spectrum in a simple <code>helloworld</code> project.
+    Here is the contents of <code>helloworld/lib/webapp.js</code>.
+</p>
+
+<pre><code>var micro = require('micro'),
+    WebApp = exports.WebApp = micro.webapp(),
+    get    = WebApp.get;
+    
+get('/hello/:name', function (request, response, args) {
+    response.ok('text/html');
+    return 'hello, ' args.name;
+});
+</code></pre>
+
+<p>
+    Add the code above to the <code>webapp.js</code> and run the website from the project root, with <a href="/proton">Proton</a>.
+    The <code>-r</code> argument will reload your application, so you can test the changes you make without having to restart <code>node</code>.
+</p>
+
+<pre><code>proton -r
+</code></pre>
+
+<p>
+    You can now visit <a href="http://localhost:8000/hello/world">/hello/world</a> in your browser and see the message "hello, world".
+    Let's start adding Spectrum.
+</p>
+
+<p>
+    Spectrum provides a <code>Renderer</code> which you can render your templates with.
+    We can use Micro's <code>init</code> hook to create a new Spectrum <code>Renderer</code>.
+</p>
+
+<pre><code>var micro   = require('micro'),
+    spectrum = require('spectrum');
+    WebApp   = exports.WebApp = micro.webapp(),
+    get      = WebApp.get;
+
+WebApp.prototype.init = function () {
+    this.view = new spectrum.Renderer(__dirname + '/../views');
+}
+
+get('/hello/:name', function (request, response, args) {
+    response.ok('text/html');
+    return 'hello, ' args.name;
+});
+</code></pre>
+
+<p>
+    After <code>require()</code>ing Spectrum we assign a new instance of <code>Renderer</code> to <code>this.view</code>.
+    This means any request handlers we create have access to the <code>Renderer</code>.
+</p>
+
+<p>
+    The <code>Renderer</code> takes one argument, a path to the directory that will contain our project's templates.
+    By convention, this is the <code>views</code> directory in the root of the project.
+</p>
+
+<p>
+    Let's define the template for the <code>/hello/:name</code> route.
+    Create <code>helloworld/views/index.spv</code> and add the following:
+</p>
+
+<pre><code>Hello, &lt;%= this.args.name %&gt;
+</code></pre>
+
+<p>
+    Spectrum also requires a project to have a <code>base.spv</code> template.
+    This is usually for your project's common output, such as the surrounding <code>&lt;html /&gt;</code> code. 
+</p>
+
+<p>
+    We don't have any yet, so we will use <code>next()</code> to pass rendering on to the <code>index.spv</code> template we have just created.
+    We will come back to this in a bit.
+</p>
+
+<p>
+    Add the following to <code>helloworld/views/base.spv</code>:
+</p>
+
+<pre><code>&lt;% next(this) %&gt;
+</code></pre>
+
+<p>
+    We can now render the template back in the <code>get</code> handler.
+</p>
+
+<pre><code>var micro   = require('micro'),
+    spectrum = require('spectrum');
+    WebApp   = exports.WebApp = micro.webapp(),
+    get      = WebApp.get;
+
+WebApp.prototype.init = function () {
+    this.view = new spectrum.Renderer(__dirname + '/../views');
+}
+
+get('/hello/:name', function (request, response, args) {
+    response.ok('text/html');
+    return this.view.render('/index.spv', {name: args.name});
+});
+</code></pre>
+
+<p>
+    Pass the template path from the <code>views</code> directory to the <code>render()</code> method.
+    The second argument is the view data we want to expose to our templates.
+</p>
+
+<p>
+    You should now be able to visit <a href="http://localhost:8000/hello/world">/hello/world</a> in your browser and see the "hello, world" message still.
+    This page is being rendered with Spectrum.
+</p>
+
+<p>
+    Rather than just sending text, let's add some markup to the page.
+</p>
+
+<p>
+    In <code>helloworld/views/index.spv</code>, wrap our message in <code>&lt;p /&gt;</code> tags.
+</p>
+
+<pre><code>&lt;p&gt;Hello, &lt;%= this.args.name %&gt;&lt;/p&gt;
+</code></pre>
+
+<p>
+    Open <code>helloworld/views/base.spv</code> and add some basic markup to create a valid page.
+</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta http-equiv="Content-Type"
+              content="text/html;charset=utf-8" &gt;
+        &lt;title&gt;Hello, &lt;%= this.args.name %&gt;&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;% next(this) %&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+<p>
+    Now if you reload <a href="http://localhost:8000/hello/world">/hello/world</a> in your browser and view source you will the fully rendered markup, from both your <code>index.spv</code> and <code>base.spv</code>.
+</p>

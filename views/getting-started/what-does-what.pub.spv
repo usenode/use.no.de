@@ -1,0 +1,52 @@
+<~method pageTitle>What does what</~method>
+
+<h1>What does what</h1>
+
+<p>
+   To make it easier to build websites for <a href="">Node.js</a>, we've created a set of minimal libraries to get you going. 
+</p>
+
+<p>
+    We opted to create smaller, decoupled libraries that allow the developer to mix and match depending on their needs.
+</p>
+
+<p>
+    All of our libaries are packaged for and distributed via <a href="http://npmjs.org/">npm</a>.
+</p>
+
+
+<h2>Proton</h2>
+<p>
+    <a href="/proton">Proton</a> is a thin wrapper around <code>node</code>.
+    It allows you easily move your website between development and production.
+</p>
+
+<h2 id="micro">Micro</h2>
+<p>
+    <a href="/micro">Micro</a> is a lightweight webapp framework.
+    It provides a simple way to respond to URLs and serve static content like CSS and JavaScript files.
+</p>
+
+<h2 id="spectrum">Spectrum</h2>
+<p>
+    <a href="/spectrum">Spectrum</a> is templating system with a small amount of syntax.
+    It allows you use embedded JavaScript within your templates and provides some extra features for achieving reuse.
+</p>
+
+<h2 id="litmus">Litmus</h2>
+<p>
+    <a href="/litmus">Litmus</a> is a unit test tool with an emphasis on speed.
+    It executes tests in parallel so that large test suites take seconds to run, not tens of seconds.
+</p>
+
+<~init>
+    this.subNavItems = [
+        { id: 'home',            link: '/',                               text: 'Home' },
+        { id: 'getting-started', link: '/getting-started',                text: 'Getting started' },
+        { id: 'what-does-what',  link: '/getting-started/what-does-what', text: 'What does what' },
+        { id: 'proton',          link: '/proton',                         text: 'Proton' },
+        { id: 'micro',           link: '/micro',                          text: 'Micro' },
+        { id: 'spectrum',        link: '/spectrum',                       text: 'Spectrum' },
+        { id: 'contact',         link: '/contact',                        text: 'Contact' }
+    ];
+</~init>
