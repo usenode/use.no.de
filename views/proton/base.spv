@@ -3,17 +3,17 @@
 <% this.ribbon('tomyan/proton.js') %>
 
 <~init>
-    this.subNavItems =  [/*
+    this.subNavItems =  [
         {
             'id'       : 'proton-home',
-            'text'     : 'Proton Home',
-            'longText' : 'Proton Home',
+            'text'     : 'Getting started',
+            'longText' : 'Getting started',
             'link'     : '/proton'
         },
         {
             'id'       : 'proton-command-line',
-            'text'     : 'Command-Line',
-            'longText' : 'Proton Command-Line',
+            'text'     : 'Cli arguments',
+            'longText' : 'Cli arguments',
             'link'     : '/proton/cli'
         }/*, 
         {
