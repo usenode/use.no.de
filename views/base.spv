@@ -26,17 +26,17 @@
 
 <~method navigation (cssClass, selected, items, opts) >
     : if (! opts) { opts = {}; }
-    <ul<%
-         if (cssClass) {
-            %> class="<%= cssClass %>"<%
-         }
-    %>>
+    <ul
+         : if (cssClass) {
+             class="<%= cssClass %>"
+         : }
+    >
         : for (var i = 0, l = items.length; i < l; i++) {
-            <li<%
-             if (selected === items[i].id) {
-                %> class="selected"<%
-             }
-            %>>
+            <li
+                : if (selected === items[i].id) {
+                    class="selected"
+                : }
+            >
                 <a href="<%= items[i].link %>"><%= items[i][ opts.textAttribute || 'text' ] %></a>
             </li>
         : }
@@ -56,28 +56,26 @@
 
 <~method copyright>
 	<div class="copyright">
-		Site developed by <a href="http://github.com/tomyan">Tom Yandell</a> &amp; <a href="http://www.twitter.com/richardhodgson">Richard Hodgson</a>.
+		Site by <a href="/contact#contributors">the UseNode contributors</a>.
 	</div>
 </~method>
 
 <~method page>
-	: var sectionTitle = (this.sectionTitle) ? this.sectionTitle : 'UseNode';
-	: var sectionUrl   = (this.sectionTitle) ? this.sectionTitle.toLowerCase() : '';
+	: var sectionTitle = this.sectionTitle || 'UseNode',
+	:     sectionUrl   = this.sectionTitle ? '/' + sectionTitle.toLowerCase() : '/';
 	<div class="section-title">
-	 <a href="/<%= sectionUrl %>"><%= sectionTitle %></a>
+	    <a href="<%= sectionUrl %>"><%= sectionTitle %></a>
 	</div>
     
     <% this.quickLinks(sectionUrl) %>
 	
 	<div class="page">
 		<div class="page-inner">
-			<div class="column">
-				<%
-					 if (this.subNavItems) {
-					 this.navigation('navigation local-navigation', this.subNavSelected, this.subNavItems);
-				 }
-				%>
-			</div>
+			<div class="column"><%
+				if (this.subNavItems) {
+				    this.navigation('navigation local-navigation', this.subNavSelected, this.subNavItems);
+				}
+			%></div>
 			<div class="column content">
 				<% next(this) %>
 			</div>
@@ -100,28 +98,29 @@
 </~method>
 
 <~method globalNav><%
-		 this.navigation('global-navigation', this.mainNavSelected, [
-			 /*{ id: 'home',      link: '/',          text: 'Home' },*/
-			 { id: 'proton',    link: '/proton',    text: 'Proton' },
-			 { id: 'micro',     link: '/micro',     text: 'Micro' },
-			 { id: 'spectrum',  link: '/spectrum',  text: 'Spectrum' },
-             { id: 'swipe',     link: '/swipe', text: 'Swipe' },
-             { id: 'litmus',    link: '/litmus', text: 'Litmus' },
-			 { id: 'contact',   link: '/contact',   text: 'Contact' }
-		 ]);
+     this.navigation('global-navigation', this.mainNavSelected, [
+         { id: 'proton',     link: '/proton',      text: 'Proton' },
+         { id: 'micro',      link: '/micro',       text: 'Micro' },
+         { id: 'spectrum',   link: '/spectrum',    text: 'Spectrum' },
+         { id: 'swipe',      link: '/swipe',       text: 'Swipe' },
+         { id: 'litmus',     link: '/litmus',      text: 'Litmus' },
+         { id: 'contribute', link: '/contribute',  text: 'Contribute' }
+     ]);
 %></~method>
 
 <~method quickLinks (sectionUrl)><%
     var quickLinks = [
-        { id: 'proton',    link: '/proton',    text: 'Proton' },
-        { id: 'micro',     link: '/micro',     text: 'Micro' },
-        { id: 'spectrum',  link: '/spectrum',  text: 'Spectrum' },
-        { id: 'litmus',    link: '/litmus', text: 'Litmus' }
+        { id: 'usenode',    link: '/',           text: 'UseNode' },
+        { id: 'proton',     link: '/proton',     text: 'Proton' },
+        { id: 'micro',      link: '/micro',      text: 'Micro' },
+        { id: 'spectrum',   link: '/spectrum',   text: 'Spectrum' },
+        { id: 'litmus',     link: '/litmus',     text: 'Litmus' },
+        { id: 'contribute', link: '/contribute', text: 'Contribute' }
     ];
     
-    for(var i = 0, l = quickLinks.length; i<l; i++) {
-        if (quickLinks[i].id == sectionUrl) {
-            quickLinks.splice(i, 1);
+    for (var i = 0, l = quickLinks.length; i < l; i++) {
+        if (quickLinks[i].link === sectionUrl) {
+            quickLinks.splice(i--, 1);
             break;
         }
     }

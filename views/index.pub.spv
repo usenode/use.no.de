@@ -3,13 +3,13 @@
 		<div class="page-inner">
 			<h1>UseNode</h1>
 			<p class="tagline">
-				A collection of technologies that were designed together to make it easy to build websites with <a href="http://nodejs.org/">Node.JS</a>
+				A collection of technologies that we design together to make it easy to build websites with <a href="http://nodejs.org/">Node.JS</a>
 			</p>
 			
 			<p class="get-started">
 				<a href="/getting-started">Get Started</a>
 			</p>
-					
+		   
 			<% this.globalNav() %>
 			
 		</div>

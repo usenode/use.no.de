@@ -1,0 +1,23 @@
+
+<h1>Contribute</h1>
+
+<% /*
+  Notes
+    Mission
+    Contact
+    Contributing
+    Methodology
+      Copyright/Licensing (contributors retain copyright on contributions, MIT licensed forever :-)
+      Develop on branches, release from master (usually)
+      Reviews
+      Testing
+      Semver
+    Contributors
+*/ %>
+
+
+<~init>
+    this.sectionTitle = 'Contribute';
+</~init>
+
+
