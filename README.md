@@ -1,6 +1,6 @@
 See <a href="http://use.no.de/">use.no.de</a>.
 
-Documentation for <a href="http://github.com/tomyan/proton.js">proton.js</a>, <a href="http://github.com/tomyan/micro.js">micro.js</a>, <a href="http://github.com/tomyan/spectrum.js">spectrum.js</a>, etc.
+Documentation for <a href="http://github.com/usenode/proton.js">proton.js</a>, <a href="http://github.com/usenode/micro.js">micro.js</a>, <a href="http://github.com/usenode/spectrum.js">spectrum.js</a>, etc.
 
 Copyright (C) 2011 by <a href="http://use.no.de/contact#contributors">UseNode contributors</a> (see <a href="https://github.com/usenode/use.no.de/commits/master">contributions</a>).
 

@@ -10,7 +10,7 @@
 <h1>Getting Started with Micro and Spectrum</h1>
 
 <p>
-    <a href="http://github.com/tomyan/micro.js">Micro</a> is a micro framework for <a href="http://nodejs.org/">Node.JS</a> and <a href="http://github.com/tomyan/spectrum.js">Spectrum</a> is a templating language that aims to allow rich templates that can be rendered on both the server and the client. This tutorial covers creating a simple web application in Micro and Spectrum. It assumes you have Node installed and working (the author is using version 0.2.5 at the time of writing) - you can check this by running &quot;<code>node --version</code>&quot;.
+    <a href="http://github.com/usenode/micro.js">Micro</a> is a micro framework for <a href="http://nodejs.org/">Node.JS</a> and <a href="http://github.com/usenode/spectrum.js">Spectrum</a> is a templating language that aims to allow rich templates that can be rendered on both the server and the client. This tutorial covers creating a simple web application in Micro and Spectrum. It assumes you have Node installed and working (the author is using version 0.2.5 at the time of writing) - you can check this by running &quot;<code>node --version</code>&quot;.
 </p>
 
 <h2>Install Micro and Spectrum</h2>
@@ -22,7 +22,7 @@
 <pre><code>npm install proton micro spectrum</code></pre>
 
 <p>
-    The <a href="http://github.com/tomyan/proton.js">Proton</a> package is included as it contains the command for running web applications built with Micro (also called &quot;proton&quot;).
+    The <a href="http://github.com/usenode/proton.js">Proton</a> package is included as it contains the command for running web applications built with Micro (also called &quot;proton&quot;).
 </p>
 
 <h2>Create a Simple Web Application</h2>
@@ -56,7 +56,7 @@ From the root folder of your new webapp, run the following command:
 <h2>Adding a View to your Web Application</h2>
 
 <p>
-   To add a view to our web application, we are going to use the <a href="http://github.com/tomyan/spectrum.js">Spectrum</a> library, but first we need to introduce a couple of features. Firstly, methods can be added to the <code>WebApp</code> class in the normal way by adding functions to the prototype:
+   To add a view to our web application, we are going to use the <a href="http://github.com/usenode/spectrum.js">Spectrum</a> library, but first we need to introduce a couple of features. Firstly, methods can be added to the <code>WebApp</code> class in the normal way by adding functions to the prototype:
 </p>
 
 <pre><code class="prettyprint">WebApp.prototype.init = function () {

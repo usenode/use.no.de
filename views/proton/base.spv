@@ -1,6 +1,6 @@
 <% next(this) %>
 
-<% this.ribbon('tomyan/proton.js') %>
+<% this.ribbon('usenode/proton.js') %>
 
 <~init>
     this.mainNavSelected = 'proton';

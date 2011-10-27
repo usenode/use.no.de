@@ -1,7 +1,7 @@
 
 <% next(this) %>
 
-<% this.ribbon('tomyan/swipe.js') %>
+<% this.ribbon('usenode/swipe.js') %>
 
 <~init>
     this.mainNavSelected = 'swipe';
