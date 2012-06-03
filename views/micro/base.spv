@@ -1,6 +1,6 @@
 <% next(this) %>
 
-<% this.ribbon('tomyan/micro.js') %>
+<% this.ribbon('usenode/micro.js') %>
 
 <~init>
     this.subNavItems =  [

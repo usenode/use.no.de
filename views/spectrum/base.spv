@@ -1,6 +1,6 @@
 <% next(this) %>
 
-<% this.ribbon('tomyan/spectrum.js') %>
+<% this.ribbon('usenode/spectrum.js') %>
 
 <~init>
     this.subNavItems =  [

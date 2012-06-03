@@ -1,7 +1,7 @@
 
 <% next(this) %>
 
-<% this.ribbon('tomyan/litmus.js') %>
+<% this.ribbon('usenode/litmus.js') %>
 
 <~init>
     this.subNavItems =  [

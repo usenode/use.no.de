@@ -8,7 +8,7 @@
 <~method pageTitle>Micro</~method>
 
 <p>
-    Micro.js is a micro webapp framework along the same lines as <a href="http://www.sinatrarb.com/">Sinatra</a>, running on top of <a href="https://github.com/tomyan/proton.js">Proton.js</a>, and hence <a href="http://wiki.commonjs.org/wiki/JSGI/Level0/A/Draft2">JSGI</a> (using <a href="https://github.com/kriszyp/jsgi-node">jsgi-node</a>) and <a href="http://nodejs.org/">Node.js</a> (although there is no reason it couldn't be made to work in other <a href="http://www.commonjs.org/">CommonJS</a> environments).
+    Micro.js is a micro webapp framework along the same lines as <a href="http://www.sinatrarb.com/">Sinatra</a>, running on top of <a href="https://github.com/usenode/proton.js">Proton.js</a>, and hence <a href="http://wiki.commonjs.org/wiki/JSGI/Level0/A/Draft2">JSGI</a> (using <a href="https://github.com/kriszyp/jsgi-node">jsgi-node</a>) and <a href="http://nodejs.org/">Node.js</a> (although there is no reason it couldn't be made to work in other <a href="http://www.commonjs.org/">CommonJS</a> environments).
 </p>
 
 <h2>Installing</h2>
