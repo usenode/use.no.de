@@ -61,6 +61,11 @@
 </~method>
 
 <~method getSectionTitleFromPath(path)><%
+
+    if (! path) {
+        return 'UseNode';
+    }
+
     var s = path.split("/")[1];
     if (s == 'getting-started' || s =='contact') {
         return 'UseNode';
