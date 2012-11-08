@@ -1,0 +1,26 @@
+{
+  "name": "use.no.de",
+  "version": "0.0.0",
+  "description": "The use.no.de website",
+  "main": "server.js",
+  "dependencies": {
+        "spectrum":    ">=0.4.1",
+        "promised-io": ">=0.3.0",
+        "jsgi":        ">=0.2.5"
+    },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/usenode/use.no.de.git"
+  },
+  "keywords": [
+    "usenode"
+  ],
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md"
+}
