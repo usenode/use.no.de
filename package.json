@@ -7,8 +7,7 @@
         "micro":       ">=0.5.3",
         "proton":      ">=0.5.0",
         "spectrum":    ">=0.4.1",
-        "promised-io": ">=0.3.0",
-        "jsgi":        ">=0.2.5"
+        "promised-io": ">=0.3.0"
     },
   "devDependencies": {},
   "scripts": {
