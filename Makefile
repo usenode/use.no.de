@@ -5,7 +5,7 @@ SHELL=/bin/bash
 	npm install
 
 ghpages: ./node_modules/.bin/proton
-	./node_modules/.bin/proton --port 9000 & echo "$$!" > use.no.de.pid; \
+	@ ./node_modules/.bin/proton --port 9000 & echo "$$!" > use.no.de.pid; \
 	sleep 1; \
 	rm -fr ./dist; \
 	mkdir -p ./dist; \
@@ -22,7 +22,8 @@ ghpages: ./node_modules/.bin/proton
 		if [ "x$$STRIPPED" = "x/" ]; then \
 			TARGET="./dist/index.html"; \
 		fi; \
-		curl "http://127.0.0.1:9000$$STRIPPED" -o "$$TARGET"; \
+		echo "Generating $$STRIPPED"; \
+		curl --progress-bar "http://127.0.0.1:9000$$STRIPPED" -o "$$TARGET"; \
 		for REPLACE_FILE in `cat files | grep -v index.pub.spv`; do \
 				REPLACE_FIND=`echo "$$REPLACE_FILE" | sed -e 's/views//' -e 's/.pub//' -e 's/.spv//'`; \
 				REPLACE_WITH=`echo "$$REPLACE_FILE" | sed -e 's%views/%%' -e 's/.pub//' -e 's/.spv//'`; \
