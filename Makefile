@@ -5,22 +5,26 @@ SHELL=/bin/bash
 	npm install
 
 ghpages: ./node_modules/.bin/proton
-	@ ./node_modules/.bin/proton --port 9000 & echo "$$!" > use.no.de.pid; \
+	@ GHPAGES_CLONE="../usenode.github.com-update"; \
+	if [ -d "$$GHPAGES_CLONE" ]; then \
+		echo "Error: remove $$GHPAGES_CLONE directory"; \
+		exit 1; \
+	fi; \
+	git clone git@github.com:usenode/usenode.github.com.git "$$GHPAGES_CLONE" --branch gh-pages; \
+	./node_modules/.bin/proton --port 9000 & echo "$$!" > use.no.de.pid; \
 	sleep 1; \
-	rm -fr ./dist; \
-	mkdir -p ./dist; \
 	find views -type d | \
 		sed -e 's/views//' | \
 		while read DIR; do \
-			echo "./dist$$DIR" | xargs mkdir -p \
+			echo "$$GHPAGES_CLONE$$DIR" | xargs mkdir -p \
 		; \
 		done; \
 	find views -type f | grep -v base.spv > files; \
 	for FILE in `cat files`; do \
 		STRIPPED=`echo "$$FILE" | sed -e 's/views//' -e 's/.pub//' -e 's/.spv//' -e 's/index//'`; \
-		TARGET="./dist$$STRIPPED.html"; \
+		TARGET="$$GHPAGES_CLONE$$STRIPPED.html"; \
 		if [ "x$$STRIPPED" = "x/" ]; then \
-			TARGET="./dist/index.html"; \
+			TARGET="$$GHPAGES_CLONE/index.html"; \
 		fi; \
 		echo "Generating $$STRIPPED"; \
 		curl --progress-bar "http://127.0.0.1:9000$$STRIPPED" -o "$$TARGET"; \
@@ -32,4 +36,6 @@ ghpages: ./node_modules/.bin/proton
 			done; \
 	done; \
 	cat ./use.no.de.pid | xargs kill -9; \
-	rm use.no.de.pid files
+	rm use.no.de.pid files; \
+	(cd "$$GHPAGES_CLONE" && git add --all && git ci -m "Updating with generated documentation" && git push origin gh-pages); \
+	rm -fr "$$GHPAGES_CLONE"
