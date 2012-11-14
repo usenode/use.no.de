@@ -37,5 +37,6 @@ ghpages: ./node_modules/.bin/proton
 	done; \
 	cat ./use.no.de.pid | xargs kill -9; \
 	rm use.no.de.pid files; \
+	cp -R static/* "$$GHPAGES_CLONE"; \
 	(cd "$$GHPAGES_CLONE" && git add --all && git ci -m "Updating with generated documentation" && git push origin gh-pages); \
 	rm -fr "$$GHPAGES_CLONE"
