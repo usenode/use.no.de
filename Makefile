@@ -10,7 +10,7 @@ ghpages: ./node_modules/.bin/proton
 		echo "Error: remove $$GHPAGES_CLONE directory"; \
 		exit 1; \
 	fi; \
-	git clone git@github.com:usenode/usenode.github.com.git "$$GHPAGES_CLONE" --branch gh-pages; \
+	git clone git@github.com:usenode/usenode.github.com.git "$$GHPAGES_CLONE" --branch master; \
 	./node_modules/.bin/proton --port 9000 & echo "$$!" > use.no.de.pid; \
 	sleep 1; \
 	find views -type d | \
@@ -38,5 +38,5 @@ ghpages: ./node_modules/.bin/proton
 	cat ./use.no.de.pid | xargs kill -9; \
 	rm use.no.de.pid files; \
 	cp -R static/* "$$GHPAGES_CLONE"; \
-	(cd "$$GHPAGES_CLONE" && git add --all && git ci -m "Updating with generated documentation" && git push origin gh-pages); \
+	(cd "$$GHPAGES_CLONE" && git add --all && git ci -m "Updating with generated documentation" && git push origin master); \
 	rm -fr "$$GHPAGES_CLONE"
