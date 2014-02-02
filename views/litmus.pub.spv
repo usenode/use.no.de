@@ -22,12 +22,12 @@
 <h2>Writing a Simple Test</h2>
 
 <p>
-    Litmus tests are ordinary <a href="http://www.commonjs.org/specs/modules/1.0/">CommonJS modules</a>, by convention in a folder called <code>tests</code> within your project. Each test module should export the key <code>test</code> containing either a <code>litmus.Test</code> or <code>litmus.Suite</code>:
+    Litmus tests are ordinary <a href="http://www.commonjs.org/specs/modules/1.0/">CommonJS modules</a>, by convention in a folder called <code>tests</code> within your project. Each test module should export either a <code>litmus.Test</code> or <code>litmus.Suite</code> instance:
 </p>
 
 <pre><code class="prettyprint">var litmus = require('litmus');
 
-exports.test = new litmus.Test('test description', function () {
+module.exports = new litmus.Test(module, function () {
     this.plan(1);
     
     this.ok(1 === 1, 'one is equal to one');
@@ -51,7 +51,7 @@ exports.test = new litmus.Test('test description', function () {
 
 <pre><code class="prettyprint">var litmus = require('litmus');
 
-exports.test = new litmus.Suite('description', [
+module.exports = new litmus.Suite(module, [
     require('./simple.js'),
     // ...
 ]);</code></pre>
